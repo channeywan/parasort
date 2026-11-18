@@ -1,0 +1,4 @@
+PASS psrs_mpi
+PASS psrs_hybrid
+PASS pipeline_sort
+TOTAL MPI cases 656

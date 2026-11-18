@@ -1,0 +1,6 @@
+make: Entering directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'
+CUDA: enabled
+MPI: disabled
+nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_sort.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_sort
+nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_multi.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_multi
+make: Leaving directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'

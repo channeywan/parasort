@@ -1,0 +1,13 @@
+PASS seq_sort std
+PASS seq_sort bucket
+PASS bucket_pthreads locked
+PASS bucket_pthreads local
+PASS bucket_omp local
+PASS psrs_omp psrs
+PASS ref_sorts gnu_parallel
+PASS ref_sorts omp_task_qsort
+TOTAL 2048
+bucket_omp normal [] imbalance 3.71736484791
+psrs_omp uniform [] imbalance 1.15001254996
+psrs_omp hotkeys ['--no-tiebreak'] imbalance 4.54987435038
+psrs_omp hotkeys [] imbalance 1.13490859527

@@ -1,0 +1,2 @@
+timestamp,host,impl,variant,dist,n,procs,threads,gpus,repeat_id,total_ms,local_sort_ms,sampling_ms,splitters_ms,partition_ms,exchange_ms,merge_ms,h2d_ms,d2h_ms,imbalance,verified,extra
+2026-11-17T09:07:24Z,"ubuntu",seq,"std",uniform,1000000,1,1,0,0,67.319479,67.319259,0,0,0,0,0,0,0,1,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1"

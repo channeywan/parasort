@@ -1,0 +1,10 @@
+make: Entering directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'
+CUDA: enabled
+MPI: enabled
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/pthreads/bucket_pthreads.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/bucket_pthreads
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/bucket_omp.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/bucket_omp
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/psrs_omp.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/psrs_omp
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/ref_sorts.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/ref_sorts
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/seq/seq_sort.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/seq_sort
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra tests/test_core.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/test_core
+make: Leaving directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'

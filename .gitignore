@@ -1,0 +1,6 @@
+code/bin/
+code/build/
+__pycache__/
+*.pyc
+.conda/
+code/results/.mpl-cache/
