@@ -106,3 +106,7 @@ CSV 保持 DESIGN.md 的 22 列，单次重复一行。extra 保存 seed、sched
 所有 MPI 实验与回归通过 scripts/launch.py 集中配置启动器及环境。纯 MPI/流水线覆盖 OMP_PROC_BIND=false，MPICH 按 core 或 hwthread 映射；混合按 socket、NUMA 或成对 NUMA 映射，超出物理核数时使用 OMP_PLACES=threads。显式 MPIEXEC_FLAGS 优先并打印警告。
 
 运行 `bash scripts/check_affinity.sh` 检查 rank CPU 集合、混合线程分布与 p=8/p=2 的 2²² 元素性能健全性。绑定前快速数据保留于 results/archive_pre_bindfix，不用于正式统计。extra 的 launcher、mpi_bind 区分实际启动策略。
+
+## GPU NUMA 绑定（T2）
+
+GPU 程序默认 `--gpu-affinity numa`，通过设备 PCI 地址读取 sysfs NUMA 节点，将驱动线程绑定到该节点 CPU；`--gpu-affinity none` 用于对照。每卡 pinned 输入、输出及中转由对应驱动线程在绑定后分配并首次写入，排序和采样默认参数保持不变。标准错误日志记录实际 CPU 集合；CSV 记录请求策略、实际绑定或失败原因。E11 包含双卡 numa/none 对照。

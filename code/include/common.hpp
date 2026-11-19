@@ -11,7 +11,7 @@ using Key = uint32_t;
 struct Config {
     uint64_t n=1000000, seed=42, batch=0;
     int threads=1, repeat=5, oversample=1, buckets_per_thread=1;
-    std::string dist="uniform", variant, schedule="static", csv;
+    std::string dist="uniform", variant, schedule="static", csv, gpu_affinity="numa";
     bool verify=true, tiebreak=true, scatter=false, naive_atomics=false, help=false;
 };
 struct PhaseTimes {

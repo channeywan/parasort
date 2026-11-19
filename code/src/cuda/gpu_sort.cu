@@ -75,4 +75,9 @@ static SortResult gpu_sort(Key* host,Key* output,uint64_t n,const Config& c) {
     }
     CUDA_CHECK(cudaMemcpyAsync(output,sorted,n*sizeof(Key),cudaMemcpyDeviceToHost,stream.value)); r.phase.d2h=t.lap(); return r;
 }
-int main(int argc,char** argv) { return run_gpu(argc,argv,"gpu","thrust",1,gpu_sort); }
+int main(int argc,char** argv) {
+    return run_gpu(argc,argv,"gpu","thrust",1,[](GpuHostBatch& batch,const Config& c) {
+        batch.output_sizes[0]=c.n;
+        return gpu_sort(batch.inputs[0],batch.outputs[0],c.n,c);
+    });
+}

@@ -22,6 +22,7 @@ std::string help_text() { return R"(ParaSort --n <N|2^k|1e9> --dist <uniform|nor
   --seed S --threads T --variant NAME --repeat R --oversample K
   --buckets-per-thread K --schedule static|dynamic|guided --no-tiebreak
   --csv FILE --verify|--no-verify --scatter --batch B --naive-atomics --help
+  --gpu-affinity numa|none (default: numa; GPU driver and pinned-buffer placement)
 Defaults: n=1e6 seed=42 repeat=5, one additional unrecorded warmup; verification enabled.
 )"; }
 Config parse_cli(int argc,char** argv,const std::string& default_variant) {
@@ -41,6 +42,7 @@ Config parse_cli(int argc,char** argv,const std::string& default_variant) {
         else if(a=="--variant") c.variant=value();
         else if(a=="--schedule") c.schedule=value();
         else if(a=="--csv") c.csv=value();
+        else if(a=="--gpu-affinity") c.gpu_affinity=value();
         else if(a=="--verify") c.verify=true;
         else if(a=="--no-verify") c.verify=false;
         else if(a=="--no-tiebreak") c.tiebreak=false;
@@ -52,6 +54,7 @@ Config parse_cli(int argc,char** argv,const std::string& default_variant) {
     const std::vector<std::string> d={"uniform","normal","power","hotkeys","sorted","reverse","nearly_sorted","few_unique"};
     if(std::find(d.begin(),d.end(),c.dist)==d.end()) throw std::invalid_argument("unknown distribution: "+c.dist);
     if(c.schedule!="static" && c.schedule!="dynamic" && c.schedule!="guided") throw std::invalid_argument("unknown schedule");
+    if(c.gpu_affinity!="numa" && c.gpu_affinity!="none") throw std::invalid_argument("--gpu-affinity must be numa or none");
     if(c.n>std::numeric_limits<size_t>::max()/sizeof(Key)) throw std::length_error("n exceeds address space");
     if(uint64_t(c.threads)*c.buckets_per_thread>65536) throw std::length_error("too many output buckets");
     omp_set_dynamic(0); omp_set_num_threads(c.threads); return c;

@@ -1,0 +1,11 @@
+PASS gpu_sort: GPU0, NUMA2, CPUs=[16, 17, 18, 19, 20, 21, 22, 23, 80, 81, 82, 83, 84, 85, 86, 87]
+GPU affinity: device=0 requested=numa actual=numa pci=0000:21:00.0 numa=2 cpus=16-23,80-87
+PASS gpu_sort: --gpu-affinity none; verified=1
+GPU affinity: device=0 requested=none actual=none(disabled) pci=0000:21:00.0 numa=2 cpus=0,64
+PASS gpu_multi: GPU0, NUMA2, CPUs=[16, 17, 18, 19, 20, 21, 22, 23, 80, 81, 82, 83, 84, 85, 86, 87]
+PASS gpu_multi: GPU1, NUMA7, CPUs=[56, 57, 58, 59, 60, 61, 62, 63, 120, 121, 122, 123, 124, 125, 126, 127]
+GPU affinity: device=0 requested=numa actual=numa pci=0000:21:00.0 numa=2 cpus=16-23,80-87
+GPU affinity: device=1 requested=numa actual=numa pci=0000:81:00.0 numa=7 cpus=56-63,120-127
+PASS gpu_multi: --gpu-affinity none; verified=1
+GPU affinity: device=0 requested=none actual=none(disabled) pci=0000:21:00.0 numa=2 cpus=0,64
+GPU affinity: device=1 requested=none actual=none(disabled) pci=0000:81:00.0 numa=7 cpus=1,65

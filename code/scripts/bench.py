@@ -101,6 +101,9 @@ def main():
    for exponent in ([24,26] if args.quick else [24,26,28,30]):
     n=(1<<(exponent-10)) if args.quick else size(exponent);baseline(n)
     run('gpu_sort',n,variant='thrust');run('gpu_sort',n,variant='sample');run('gpu_sort',n,variant='sample',extra=['--naive-atomics']);run('gpu_multi',n)
+   n=(1<<18) if args.quick else (1<<30)
+   baseline(n)
+   for affinity in ('numa','none'):run('gpu_multi',n,extra=['--gpu-affinity',affinity])
   elif e=='E12':
    n=size(30);baseline(n);cpu(n,PS[-1]);run('gpu_sort',n,variant='thrust');run('gpu_sort',n,variant='sample');run('gpu_multi',n)
   elif e=='E13':

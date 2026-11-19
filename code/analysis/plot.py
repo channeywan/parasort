@@ -17,6 +17,7 @@ def label(row):
  value=f'{row.impl}/{row.variant}'
  if row.impl=='omp' and row.variant=='psrs' and str(row.tiebreak)=='0':value+=' no-tie'
  if row.impl=='gpu' and row.variant=='sample':value+=' naive' if str(row.naive_atomics)=='1' else ' hierarchical'
+ if row.impl=='gpu_multi':value+=' '+str(row.get('gpu_affinity','legacy'))
  return value
 def save(fig,name):
  fig.tight_layout();fig.savefig(DEST/f'{name}.png',dpi=200);fig.savefig(DEST/f'{name}.pdf');plt.close(fig)
