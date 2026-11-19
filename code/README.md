@@ -170,3 +170,18 @@ E13 在统计、绘图之后自动执行 `python analysis/export_for_report.py`�
 数据包包含关键数字及原始行溯源、每实验不超过八列的中文表格、图表清单、环境、方法和实现事实。`source` 相对 `report/`，`raw_sources.file` 相对仓库根目录；每条实测保留模式、主机、种子、规模、拓扑与调优配置。导出时重新读取原始 CSV，已有表格和拟合文件不能替代数据校验。
 
 需要查看快速快照时，显式执行 `python analysis/export_for_report.py --include-quick --output-dir /tmp/parasort-quick-bundle`，它只选择快速数据。正式交给报告撰写者的接口是默认 `report/data_bundle/`；报告正文由撰写者维护。
+
+## 格式与行为一致性（T9）
+
+开发工具通过 conda 安装：`conda install -c conda-forge clang-format black font-ttf-noto-cjk`。C++/CUDA 使用 `.clang-format`，Python 使用 Black；批量 Black 进程池受限时可逐文件执行。关键步骤的中文说明涵盖 PSRS、复合键、归并、桶分发、流水线缓冲和 GPU 交换。
+
+`PARASORT_FINGERPRINT=1` 将真实排序输出的元素数、sum、xor 写入 extra；该观察开关默认关闭，计算位于排序计时之后。MPI 汇总实际输出片段，GPU 汇总实际输出缓冲。固定 seed=42、n=2²⁰ 的对照覆盖 19 个实现/变体；逐元素流水线按定义使用 n=p，快照中明确记录此例外。
+
+```bash
+bash tests/compare_fingerprints.sh capture results/validation/before.json
+# 调整注释和格式，重新 make，再捕获输出
+bash tests/compare_fingerprints.sh capture results/validation/after.json
+bash tests/compare_fingerprints.sh compare results/validation/before.json results/validation/after.json
+```
+
+本轮前后测试证据分别保存在 `results/validation/T9_before_*` 与 `T9_after_*`，代码结构等价检查在 `T9_equivalence.log`，输出比较在 `T9_fingerprint_compare.log`。快速正确性和百万/千万级 GPU 回归分别写入独立验证 CSV，保留正式实验原始文件。

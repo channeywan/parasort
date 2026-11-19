@@ -1,0 +1,320 @@
+{
+  "seed": 42,
+  "distribution": "uniform",
+  "default_n": 1048576,
+  "cases": {
+    "seq_std": {
+      "config": {
+        "name": "seq_std",
+        "executable": "seq_sort",
+        "variant": "std",
+        "threads": 1,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "seq_bucket": {
+      "config": {
+        "name": "seq_bucket",
+        "executable": "seq_sort",
+        "variant": "bucket",
+        "threads": 1,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "pthreads_locked": {
+      "config": {
+        "name": "pthreads_locked",
+        "executable": "bucket_pthreads",
+        "variant": "locked",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "pthreads_local": {
+      "config": {
+        "name": "pthreads_local",
+        "executable": "bucket_pthreads",
+        "variant": "local",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "omp_bucket": {
+      "config": {
+        "name": "omp_bucket",
+        "executable": "bucket_omp",
+        "variant": "local",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "omp_psrs": {
+      "config": {
+        "name": "omp_psrs",
+        "executable": "psrs_omp",
+        "variant": "psrs",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "omp_psrs_no_tie": {
+      "config": {
+        "name": "omp_psrs_no_tie",
+        "executable": "psrs_omp",
+        "variant": "psrs",
+        "threads": 8,
+        "ranks": 1,
+        "options": [
+          "--no-tiebreak"
+        ],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "gnu_parallel": {
+      "config": {
+        "name": "gnu_parallel",
+        "executable": "ref_sorts",
+        "variant": "gnu_parallel",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "omp_task_qsort": {
+      "config": {
+        "name": "omp_task_qsort",
+        "executable": "ref_sorts",
+        "variant": "omp_task_qsort",
+        "threads": 8,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "mpi_psrs": {
+      "config": {
+        "name": "mpi_psrs",
+        "executable": "psrs_mpi",
+        "variant": "psrs",
+        "threads": 1,
+        "ranks": 8,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "mpi_allgather": {
+      "config": {
+        "name": "mpi_allgather",
+        "executable": "psrs_mpi",
+        "variant": "allgather",
+        "threads": 1,
+        "ranks": 8,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "hybrid_2x4": {
+      "config": {
+        "name": "hybrid_2x4",
+        "executable": "psrs_hybrid",
+        "variant": "psrs",
+        "threads": 4,
+        "ranks": 2,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "hybrid_8x1": {
+      "config": {
+        "name": "hybrid_8x1",
+        "executable": "psrs_hybrid",
+        "variant": "psrs",
+        "threads": 1,
+        "ranks": 8,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "pipeline_block": {
+      "config": {
+        "name": "pipeline_block",
+        "executable": "pipeline_sort",
+        "variant": "block",
+        "threads": 1,
+        "ranks": 4,
+        "options": [
+          "--batch",
+          "32768"
+        ],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "pipeline_elem": {
+      "config": {
+        "name": "pipeline_elem",
+        "executable": "pipeline_sort",
+        "variant": "elem",
+        "threads": 1,
+        "ranks": 8,
+        "options": [],
+        "n": 8
+      },
+      "fingerprint": {
+        "output_count": 8,
+        "output_sum": 11370958562404716435,
+        "output_xor": 12840615119859885953
+      }
+    },
+    "gpu_thrust": {
+      "config": {
+        "name": "gpu_thrust",
+        "executable": "gpu_sort",
+        "variant": "thrust",
+        "threads": 1,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "gpu_sample_hierarchical": {
+      "config": {
+        "name": "gpu_sample_hierarchical",
+        "executable": "gpu_sort",
+        "variant": "sample",
+        "threads": 1,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "gpu_sample_naive": {
+      "config": {
+        "name": "gpu_sample_naive",
+        "executable": "gpu_sort",
+        "variant": "sample",
+        "threads": 1,
+        "ranks": 1,
+        "options": [
+          "--naive-atomics"
+        ],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    },
+    "gpu_dual": {
+      "config": {
+        "name": "gpu_dual",
+        "executable": "gpu_multi",
+        "variant": "sample",
+        "threads": 2,
+        "ranks": 1,
+        "options": [],
+        "n": 1048576
+      },
+      "fingerprint": {
+        "output_count": 1048576,
+        "output_sum": 126213622782769517,
+        "output_xor": 7380544824863859251
+      }
+    }
+  },
+  "skipped": [],
+  "note": "Fingerprints read actual sorted output after timing. pipeline_elem uses n=p by definition."
+}

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
+# test_stream_bw.py：验证算法输出和实验方法的边界条件。
+# 对应 DESIGN.md 第 9 节。
+# 配置、数据来源及缺失状态由统一框架记录。
 """Exercise the real STREAM tool, its provenance, and rejection of invalid runs."""
+
 import csv
 import io
 import math
@@ -31,7 +35,16 @@ class StreamBandwidthTests(unittest.TestCase):
             for bind in ("close", "spread"):
                 with self.subTest(bind=bind):
                     result = self.run_tool(
-                        ["--n", "65537", "--threads", "2", "--repeat", "5", "--csv", str(destination)],
+                        [
+                            "--n",
+                            "65537",
+                            "--threads",
+                            "2",
+                            "--repeat",
+                            "5",
+                            "--csv",
+                            str(destination),
+                        ],
                         bind,
                     )
                     self.assertEqual(result.returncode, 0, result.stderr)
@@ -49,7 +62,9 @@ class StreamBandwidthTests(unittest.TestCase):
                         self.assertEqual(row["bind_requested"], bind)
                         self.assertTrue(row["host"])
                         self.assertTrue(row["timestamp"].endswith("Z"))
-                        best, median = float(row["best_GBps"]), float(row["median_GBps"])
+                        best, median = float(row["best_GBps"]), float(
+                            row["median_GBps"]
+                        )
                         self.assertTrue(math.isfinite(best) and math.isfinite(median))
                         self.assertGreater(median, 0)
                         self.assertGreaterEqual(best, median)
@@ -60,7 +75,9 @@ class StreamBandwidthTests(unittest.TestCase):
 
     def test_size_notation_and_one_element_boundaries(self):
         for size in ("1", "2^10"):
-            result = self.run_tool(["--n", size, "--threads", "1", "--repeat", "2", "--csv", ""])
+            result = self.run_tool(
+                ["--n", size, "--threads", "1", "--repeat", "2", "--csv", ""]
+            )
             self.assertEqual(result.returncode, 0, result.stderr)
             rows = list(csv.DictReader(io.StringIO(result.stdout)))
             self.assertEqual(len(rows), 2)
@@ -70,7 +87,14 @@ class StreamBandwidthTests(unittest.TestCase):
     def test_invalid_parameters_never_emit_measurements(self):
         with tempfile.TemporaryDirectory() as directory:
             destination = Path(directory) / "must_not_exist.csv"
-            for arguments in (["--n", "0"], ["--threads", "0"], ["--repeat", "0"], ["--n", "-1"], ["--n", "2^64"], ["--unknown"]):
+            for arguments in (
+                ["--n", "0"],
+                ["--threads", "0"],
+                ["--repeat", "0"],
+                ["--n", "-1"],
+                ["--n", "2^64"],
+                ["--unknown"],
+            ):
                 with self.subTest(arguments=arguments):
                     result = self.run_tool([*arguments, "--csv", str(destination)])
                     self.assertNotEqual(result.returncode, 0)
@@ -90,7 +114,18 @@ class StreamBandwidthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             destination = Path(directory) / "existing.csv"
             destination.write_text("unrelated,data\n1,2\n")
-            result = self.run_tool(["--n", "1024", "--threads", "1", "--repeat", "1", "--csv", str(destination)])
+            result = self.run_tool(
+                [
+                    "--n",
+                    "1024",
+                    "--threads",
+                    "1",
+                    "--repeat",
+                    "1",
+                    "--csv",
+                    str(destination),
+                ]
+            )
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("different header", result.stderr)
             self.assertEqual(destination.read_text(), "unrelated,data\n1,2\n")

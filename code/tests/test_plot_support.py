@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# test_plot_support.py：验证算法输出和实验方法的边界条件。
+# 对应 DESIGN.md 第 9 节。
+# 配置、数据来源及缺失状态由统一框架记录。
 """验证中文字体、图例身份与快速图片清单，不依赖实验测量。"""
 
 import importlib.util

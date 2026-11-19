@@ -1,0 +1,20 @@
+CUDA: enabled
+MPI: enabled
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/cli.cpp -o build/common/cli.o
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/csv.cpp -o build/common/csv.o
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/datagen.cpp -o build/common/datagen.o
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/psrs_core.cpp -o build/common/psrs_core.o
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/runner.cpp -o build/common/runner.o
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/verify.cpp -o build/common/verify.o
+mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/tools/affinity_probe.cpp -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/affinity_probe
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/pthreads/bucket_pthreads.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/bucket_pthreads
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/bucket_omp.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/bucket_omp
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/psrs_omp.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/psrs_omp
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/openmp/ref_sorts.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/ref_sorts
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/seq/seq_sort.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/seq_sort
+mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/psrs_mpi.cpp src/mpi/mpi_engine.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/psrs_mpi
+mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/psrs_hybrid.cpp src/mpi/mpi_engine.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/psrs_hybrid
+mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/pipeline_sort.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/pipeline_sort
+nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_sort.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_sort
+nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_multi.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_multi
+g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/tools/stream_bw.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/stream_bw

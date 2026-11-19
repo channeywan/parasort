@@ -1,0 +1,20 @@
+PASS fingerprint seq_std {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint seq_bucket {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint pthreads_locked {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint pthreads_local {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint omp_bucket {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint omp_psrs {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint omp_psrs_no_tie {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint gnu_parallel {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint omp_task_qsort {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint mpi_psrs {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint mpi_allgather {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint hybrid_2x4 {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint hybrid_8x1 {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint pipeline_block {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint pipeline_elem {'output_count': 8, 'output_sum': 11370958562404716435, 'output_xor': 12840615119859885953}
+PASS fingerprint gpu_thrust {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint gpu_sample_hierarchical {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint gpu_sample_naive {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+PASS fingerprint gpu_dual {'output_count': 1048576, 'output_sum': 126213622782769517, 'output_xor': 7380544824863859251}
+Captured 19 implementations; skipped []

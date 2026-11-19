@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# test_scaling_identity.py：验证算法输出和实验方法的边界条件。
+# 对应 DESIGN.md 第 9 节。
+# 配置、数据来源及缺失状态由统一框架记录。
 """Scaling curves normalize expected placement transitions, preserving provenance."""
 
 import importlib.util

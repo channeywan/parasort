@@ -1,0 +1,3 @@
+PASS: C++/CUDA code tokens and Python AST unchanged, excluding comments/docstrings.
+cpp 27 24198a1296ef54147529ffa88c0e0f34ab5f62118de1d35906a8d1650bfb71a9
+python 24 aac39f2313a26dd62a2a3eec69fa361eff08fad17cbeb440a121442d7a3dea0f
