@@ -308,11 +308,16 @@ def label(row):
             "（" + tuning_label("naive_atomics", _value(row, "naive_atomics", 0)) + "）"
         )
     if impl in ("gpu", "gpu_multi"):
-        value += (
-            "（"
-            + tuning_label("gpu_affinity", _value(row, "gpu_affinity", "legacy"))
-            + "）"
-        )
+        requested = _token(_value(row, "gpu_affinity", "legacy"))
+        actual = _token(_value(row, "gpu_affinity_actual", "legacy"))
+        placement = tuning_label("gpu_affinity", requested)
+        if requested == "numa" and actual not in ("numa", "legacy"):
+            placement = (
+                "NUMA 请求未生效：实际未绑定"
+                if actual.startswith("none")
+                else "NUMA 请求部分生效" if actual == "mixed" else "NUMA 实际绑定未确认"
+            )
+        value += "（" + placement + "）"
     return value
 
 

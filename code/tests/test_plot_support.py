@@ -86,6 +86,16 @@ class ChineseFontTests(unittest.TestCase):
 
 
 class ChineseLabelTests(unittest.TestCase):
+    def test_failed_gpu_affinity_is_explicit_without_changing_success_labels(self):
+        gpu = {"impl": "gpu_multi", "variant": "sample", "gpu_affinity": "numa"}
+        normal = SUPPORT.label(gpu)
+        self.assertEqual(SUPPORT.label(dict(gpu, gpu_affinity_actual="numa")), normal)
+        failed = SUPPORT.label(dict(gpu, gpu_affinity_actual="none(setaffinity_22)"))
+        self.assertIn("请求未生效", failed)
+        self.assertIn("实际未绑定", failed)
+        self.assertNotIn("GPU 本地 NUMA", failed)
+        self.assertIn("部分生效", SUPPORT.label(dict(gpu, gpu_affinity_actual="mixed")))
+
     def test_labels_keep_relevant_variants_and_fixed_hybrid_rank_count(self):
         self.assertIn(
             "关闭复合键",

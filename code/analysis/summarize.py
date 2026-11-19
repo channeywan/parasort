@@ -25,6 +25,7 @@ TUNING = [
     "mpi_bind",
     "launcher",
     "gpu_affinity",
+    "gpu_affinity_actual",
     "exchange_path",
 ]
 DEFAULTS = {
@@ -42,6 +43,7 @@ DEFAULTS = {
     "mpi_bind": "none",
     "launcher": "none",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
 }
 GROUP_KEYS = [

@@ -64,6 +64,7 @@ TUNING = [
     "launcher",
     "places",
     "gpu_affinity",
+    "gpu_affinity_actual",
     "gpu_affinity_requested",
     "exchange_path",
     "sweep",
@@ -83,6 +84,7 @@ DEFAULTS = {
     "launcher": "none",
     "places": "unset",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "gpu_affinity_requested": "",
     "exchange_path": "none",
     "sweep": "",
@@ -1083,6 +1085,11 @@ class Exporter:
             ).startswith("none"):
                 continue
             c = dual["config"]
+            if (
+                str(c["gpu_affinity"]).startswith("numa")
+                and c["gpu_affinity_actual"] != "numa"
+            ):
+                continue
             singles = [
                 row
                 for row in rows
@@ -1090,7 +1097,15 @@ class Exporter:
                 and row["config"]["variant"] == "thrust"
                 and all(
                     row["config"][key] == c[key]
-                    for key in ("host", "n", "dist", "seed", "quick", "gpu_affinity")
+                    for key in (
+                        "host",
+                        "n",
+                        "dist",
+                        "seed",
+                        "quick",
+                        "gpu_affinity",
+                        "gpu_affinity_actual",
+                    )
                 )
             ]
             if len(singles) == 1:
@@ -1121,10 +1136,24 @@ class Exporter:
                 {
                     key: value
                     for key, value in row["config"].items()
-                    if key not in {"gpu_affinity", "gpu_affinity_requested"}
+                    if key
+                    not in {
+                        "gpu_affinity",
+                        "gpu_affinity_actual",
+                        "gpu_affinity_requested",
+                    }
                 }
             )
-            by_affinity[key][mode] = row
+            # Keep failed requests visible as measurements, never as successful ablations.
+            values = by_affinity[key]
+            actual = str(row["config"]["gpu_affinity_actual"])
+            if mode == "numa" and actual != "numa":
+                continue
+            if mode == "none" and not actual.startswith("none"):
+                continue
+            if mode == "unknown":
+                continue
+            values[mode] = row
         for key, values in by_affinity.items():
             # The requested affinity ablation is at n=2^30. Quick mode records
             # its actual scaled n; do not demand none at every ordinary GPU size.

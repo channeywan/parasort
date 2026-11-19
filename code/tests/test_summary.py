@@ -18,6 +18,34 @@ SPEC.loader.exec_module(SUMMARY)
 
 
 class BindingDataTests(unittest.TestCase):
+    def test_failed_gpu_binding_is_not_merged_with_successful_request(self):
+        records = []
+        for actual, elapsed in (("numa", 10), ("none(setaffinity_22)", 100)):
+            records.append(
+                dict(
+                    experiment="E11",
+                    quick=False,
+                    host="test-host",
+                    impl="gpu_multi",
+                    variant="sample",
+                    dist="uniform",
+                    n=1 << 30,
+                    procs=1,
+                    threads=2,
+                    gpus=2,
+                    total_ms=elapsed,
+                    verified=1,
+                    extra="gpu_affinity=numa;gpu_affinity_actual=" + actual,
+                )
+            )
+        data = SUMMARY.summarize(pd.DataFrame(records))
+        self.assertEqual(len(data), 2)
+        self.assertEqual(
+            dict(zip(data.gpu_affinity_actual, data.median_ms)),
+            {"numa": 10, "none(setaffinity_22)": 100},
+        )
+        self.assertTrue((data.repeats == 1).all())
+
     def test_pre_fix_rows_are_excluded_and_binding_modes_survive(self):
         with tempfile.TemporaryDirectory() as directory:
             previous = SUMMARY.ROOT

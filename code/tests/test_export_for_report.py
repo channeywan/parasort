@@ -135,6 +135,60 @@ class ExportTests(unittest.TestCase):
         self.assertTrue(quick["best_cpu"]["value"]["total_ms"]["quick"])
         self.assertIsNone(quick["seq_std_2p30_ms"]["value"])
 
+    def test_gpu_binding_failure_is_a_separate_measurement_not_numa_success(self):
+        self.write(
+            "E11.csv",
+            [
+                row(
+                    impl="gpu_multi",
+                    variant="sample",
+                    threads=2,
+                    gpus=2,
+                    total=elapsed,
+                    gpu_affinity="numa",
+                    gpu_affinity_actual=actual,
+                    exchange_path="pinned_host",
+                )
+                for actual, elapsed in (("numa", 10), ("none(setaffinity_22)", 100))
+            ],
+        )
+        numbers = self.export()
+        gpu = numbers["e11_gpu"]["value"]
+        measured = gpu["measurements"]
+        self.assertEqual(len(measured), 2)
+        self.assertEqual(
+            {
+                item["config"]["gpu_affinity_actual"]: item["total_ms"]["value"]
+                for item in measured
+            },
+            {"numa": 10, "none(setaffinity_22)": 100},
+        )
+        comparison = gpu["affinity"][0]
+        self.assertEqual(comparison["numa"]["total_ms"]["value"], 10)
+        self.assertEqual(comparison["numa"]["config"]["gpu_affinity_actual"], "numa")
+        self.assertIsNone(comparison["none"]["value"])
+        self.assertNotIn("none_over_numa", comparison)
+
+    def test_failed_gpu_binding_alone_cannot_supply_the_numa_ablation(self):
+        self.write(
+            "E11.csv",
+            [
+                row(
+                    impl="gpu_multi",
+                    variant="sample",
+                    threads=2,
+                    gpus=2,
+                    total=100,
+                    gpu_affinity="numa",
+                    gpu_affinity_actual="none(numa_node_unknown)",
+                )
+            ],
+        )
+        gpu = self.export()["e11_gpu"]["value"]
+        self.assertEqual(len(gpu["measurements"]), 1)
+        self.assertIsNone(gpu["affinity"][0]["numa"]["value"])
+        self.assertEqual(gpu["dual_vs_single_thrust"], [])
+
     def test_verified_filter_and_mode_separation(self):
         raw = [
             row(impl="seq", variant="std", threads=1, total=100),
@@ -439,6 +493,7 @@ def fit_models(summary):
                     total=20,
                     compute_ms="15",
                     gpu_affinity="numa",
+                    gpu_affinity_actual="numa",
                 ),
                 row(
                     impl="gpu_multi",
@@ -448,6 +503,7 @@ def fit_models(summary):
                     total=10,
                     compute_ms="5",
                     gpu_affinity="numa",
+                    gpu_affinity_actual="numa",
                     exchange_path="pinned_host",
                 ),
                 row(
@@ -458,6 +514,7 @@ def fit_models(summary):
                     total=15,
                     compute_ms="8",
                     gpu_affinity="none",
+                    gpu_affinity_actual="none(disabled)",
                     exchange_path="pinned_host",
                 ),
             ],
