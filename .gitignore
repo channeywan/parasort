@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .conda/
 code/results/.mpl-cache/
+code/results/.pending/

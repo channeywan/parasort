@@ -1,22 +1,51 @@
 #!/usr/bin/env bash
+# Structured, append-only snapshots; this script is never invoked by --dry-run.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 mkdir -p results
 {
-    date -u --iso-8601=seconds
-    uname -a
-    lscpu
-    free -h
-    for tool in numactl nvidia-smi g++ mpicxx nvcc; do
-        if command -v "$tool" >/dev/null 2>&1; then
-            case "$tool" in
-                numactl) numactl -H ;;
-                nvidia-smi) nvidia-smi; nvidia-smi topo -m ;;
-                *) "$tool" --version ;;
-            esac
-        else
-            echo "$tool: unavailable"
-        fi
-    done
-    python3 -c 'import sys,pandas,matplotlib; print(sys.version); print("pandas",pandas.__version__,"matplotlib",matplotlib.__version__)'
-} >> results/env.txt 2>&1
+    echo "=== ENVIRONMENT ${1:-snapshot} ==="
+    echo "timestamp_utc=$(date -u --iso-8601=seconds)"
+    echo "git_commit=$(git rev-parse HEAD 2>/dev/null || echo unavailable)"
+    echo "ignore_load=${PARASORT_IGNORE_LOAD:-false}"
+    echo "loadavg=$(cat /proc/loadavg)"
+    if [[ ${1:-snapshot} != finish ]]; then
+        echo '[os]'
+        cat /etc/os-release
+        uname -a
+        echo '[lscpu]'
+        lscpu
+        echo '[memory]'
+        free -h
+        echo '[numactl -H]'
+        if command -v numactl >/dev/null 2>&1; then numactl -H; else echo unavailable; fi
+        echo '[nvidia-smi]'
+        if command -v nvidia-smi >/dev/null 2>&1; then
+            nvidia-smi
+            echo '[nvidia-smi topo -m]'
+            nvidia-smi topo -m
+            echo '[gpu pci numa]'
+            for device in /sys/bus/pci/devices/*; do
+                if [[ -r "$device/vendor" && $(cat "$device/vendor") == 0x10de && -r "$device/numa_node" ]]; then
+                    echo "$(basename "$device") numa_node=$(cat "$device/numa_node")"
+                fi
+            done
+        else echo unavailable; fi
+        for tool in g++ mpicxx mpiexec nvcc; do
+            echo "[$tool --version]"
+            if command -v "$tool" >/dev/null 2>&1; then "$tool" --version; else echo unavailable; fi
+        done
+        echo '[python]'
+        "${PYTHON:-python3}" -B - <<'PY'
+import importlib.metadata
+import sys
+print(sys.version)
+for package in ('pandas', 'matplotlib'):
+    try:
+        print(package, importlib.metadata.version(package))
+    except importlib.metadata.PackageNotFoundError:
+        print(package, 'unavailable')
+PY
+    fi
+    echo "=== END ENVIRONMENT ${1:-snapshot} ==="
+} 2>&1 | sed 's/[[:blank:]]*$//' >> results/env.txt

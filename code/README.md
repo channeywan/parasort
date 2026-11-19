@@ -110,3 +110,26 @@ CSV 保持 DESIGN.md 的 22 列，单次重复一行。extra 保存 seed、sched
 ## GPU NUMA 绑定（T2）
 
 GPU 程序默认 `--gpu-affinity numa`，通过设备 PCI 地址读取 sysfs NUMA 节点，将驱动线程绑定到该节点 CPU；`--gpu-affinity none` 用于对照。每卡 pinned 输入、输出及中转由对应驱动线程在绑定后分配并首次写入，排序和采样默认参数保持不变。标准错误日志记录实际 CPU 集合；CSV 记录请求策略、实际绑定或失败原因。E11 包含双卡 numa/none 对照。
+
+## 正式实验
+
+正式数据应在服务器空闲、GPU 无其他计算任务时采集。开始前先完成进程绑定与性能健全性检查；快速模式只验证实验链路，不能代替十亿元素结果。
+
+```bash
+tmux new -s parasort
+cd <项目目录>
+conda activate ./.conda
+source code/scripts/activate.sh
+cd code
+make -j16 all
+bash scripts/check_affinity.sh --sanity
+bash scripts/run_all.sh --dry-run
+mkdir -p results/logs
+bash scripts/run_all.sh 2>&1 | tee results/logs/run_all.log
+```
+
+`--only E2,E4` 只执行指定实验，`--force` 重跑成功项目，`--quick` 与正式结果分开维护续跑状态。每个实验写入临时 CSV，全部成功后原子替换对应结果；失败和 Ctrl-C 会保留失败状态与中间文件，再次运行从未成功的实验继续，避免将半轮数据混入统计。成功项目的状态在 `results/*_status.json`，日志在 `results/logs/<实验>.log`，命令及退出状态记录在 `results/commands.jsonl`。
+
+`--dry-run` 列出实际参数和粗略耗时，仅用于安排机时，不生成 CSV、状态或环境记录；估时不能用于报告。起跑时记录机器信息、Git 提交和时间，检查 1 分钟负载及 GPU 计算进程。负载大于 2 时需要在终端确认，非交互环境应先检查负载来源，再明确使用 `--ignore-load`。机器信息和开始/结束时间保存在 `results/env.txt`。
+
+中断后的典型续跑命令为 `bash scripts/run_all.sh`；希望整轮重采则使用 `bash scripts/run_all.sh --force`。运行前无需删除已归档的绑定修复前数据。

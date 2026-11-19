@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-source scripts/activate.sh
-exec "${PYTHON:-python3}" scripts/bench.py E5 "$@"
+exec bash scripts/run_all.sh --only E5 "$@"

@@ -121,7 +121,7 @@ class LauncherPolicyTests(unittest.TestCase):
                                 R=2, result=root / 'results' / 'E2_quick.csv',
                                 plan={'runs': 0, 'skipped': []}):
                 with patch.dict(os.environ, {'OMP_PROC_BIND': 'close'}, clear=True):
-                    with patch('subprocess.run') as run, contextlib.redirect_stdout(io.StringIO()):
+                    with patch.object(bench,'run_command') as run, contextlib.redirect_stdout(io.StringIO()):
                         bench.run('psrs_mpi', 1024, procs=8)
                     command = run.call_args.args[0]
                     self.assertEqual(command[1:7], ['-bind-to', 'core', '-map-by', 'core', '-n', '8'])
