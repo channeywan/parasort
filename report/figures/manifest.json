@@ -1,0 +1,515 @@
+[
+  {
+    "paths": [
+      "figures/E4b_oversample.png",
+      "figures/E4b_oversample.pdf"
+    ],
+    "title": "过采样：失衡度、总时间与分割点开销",
+    "experiment": "E4b",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无本模式的已验证实测曲线。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E4b_tiebreak.png",
+      "figures/E4b_tiebreak.pdf"
+    ],
+    "title": "重复键：复合键开关与处理单元数",
+    "experiment": "E4b",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无本模式的已验证实测曲线。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E14.png",
+      "figures/E14.pdf"
+    ],
+    "title": "STREAM 带宽与 PSRS 归并有效带宽",
+    "experiment": "E14",
+    "quick": false,
+    "source_table": "tables/bandwidth.csv",
+    "series": [
+      "PSRS 归并曲线仅取完整 E2/E5，来源 tables/summary.csv。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E2.png",
+      "figures/E2.pdf"
+    ],
+    "title": "强扩展：加速比与效率",
+    "experiment": "E2",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E3.png",
+      "figures/E3.pdf"
+    ],
+    "title": "弱扩展：总时间与加速比",
+    "experiment": "E3",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E4.png",
+      "figures/E4.pdf"
+    ],
+    "title": "输入分布与负载均衡",
+    "experiment": "E4",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E5.png",
+      "figures/E5.pdf"
+    ],
+    "title": "排序阶段时间",
+    "experiment": "E5",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E6.png",
+      "figures/E6.pdf"
+    ],
+    "title": "桶数与任务调度",
+    "experiment": "E6",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E7.png",
+      "figures/E7.pdf"
+    ],
+    "title": "NUMA 初始化与线程绑定",
+    "experiment": "E7",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E8.png",
+      "figures/E8.pdf"
+    ],
+    "title": "Pthreads 锁竞争",
+    "experiment": "E8",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E9.png",
+      "figures/E9.pdf"
+    ],
+    "title": "MPI 通信与混合配置",
+    "experiment": "E9",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E10.png",
+      "figures/E10.pdf"
+    ],
+    "title": "流水线批大小与 PSRS 对照",
+    "experiment": "E10",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E11.png",
+      "figures/E11.pdf"
+    ],
+    "title": "GPU 排序与数据传输",
+    "experiment": "E11",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E12.png",
+      "figures/E12.pdf"
+    ],
+    "title": "各实现总时间对照",
+    "experiment": "E12",
+    "quick": false,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/E13.png",
+      "figures/E13.pdf"
+    ],
+    "title": "Amdahl 拟合与 Karp–Flatt 指标",
+    "experiment": "E13",
+    "quick": false,
+    "source_table": "tables/E13.md",
+    "series": [
+      "暂无实测曲线；不根据快速数据推算完整结果。"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E4b_oversample_quick.png",
+      "figures/quick/E4b_oversample_quick.pdf"
+    ],
+    "title": "过采样：失衡度、总时间与分割点开销",
+    "experiment": "E4b",
+    "quick": true,
+    "source_table": "tables/E4b_quick.md",
+    "series": [
+      "失衡度",
+      "均匀分布",
+      "正态分布",
+      "热点键",
+      "总时间"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E4b_tiebreak_quick.png",
+      "figures/quick/E4b_tiebreak_quick.pdf"
+    ],
+    "title": "重复键：复合键开关与处理单元数",
+    "experiment": "E4b",
+    "quick": true,
+    "source_table": "tables/E4b_quick.md",
+    "series": [
+      "关闭复合键",
+      "开启复合键"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E14_quick.png",
+      "figures/quick/E14_quick.pdf"
+    ],
+    "title": "STREAM 带宽与 PSRS 归并有效带宽",
+    "experiment": "E14",
+    "quick": true,
+    "source_table": "tables/bandwidth.csv",
+    "series": [
+      "STREAM 复制，紧邻，n=1048576，主机=ubuntu",
+      "STREAM 三项运算，紧邻，n=1048576，主机=ubuntu",
+      "STREAM 复制，分散，n=1048576，主机=ubuntu",
+      "STREAM 三项运算，分散，n=1048576，主机=ubuntu"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E2_quick.png",
+      "figures/quick/E2_quick.pdf"
+    ],
+    "title": "强扩展：加速比与效率",
+    "experiment": "E2",
+    "quick": true,
+    "source_table": "tables/E2_quick.md",
+    "series": [
+      "理想加速比 y=p",
+      "MPI+OpenMP 混合（1 个 MPI 进程）",
+      "MPI+OpenMP 混合（2 个 MPI 进程）",
+      "MPI PSRS",
+      "OpenMP 等宽桶",
+      "OpenMP PSRS",
+      "GNU parallel sort（参考）",
+      "OpenMP 任务快速排序（参考）",
+      "理想效率 1"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E3_quick.png",
+      "figures/quick/E3_quick.pdf"
+    ],
+    "title": "弱扩展：总时间与加速比",
+    "experiment": "E3",
+    "quick": true,
+    "source_table": "tables/E3_quick.md",
+    "series": [
+      "MPI+OpenMP 混合（8 个 MPI 进程）",
+      "MPI PSRS",
+      "OpenMP 等宽桶",
+      "OpenMP PSRS",
+      "理想加速比 y=p"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E4_quick.png",
+      "figures/quick/E4_quick.pdf"
+    ],
+    "title": "输入分布与负载均衡",
+    "experiment": "E4",
+    "quick": true,
+    "source_table": "tables/E4_quick.md",
+    "series": [
+      "OpenMP 等宽桶",
+      "OpenMP PSRS（关闭复合键）",
+      "OpenMP PSRS",
+      "柱配置：均匀分布",
+      "柱配置：正态分布",
+      "柱配置：幂律分布",
+      "柱配置：热点键",
+      "柱配置：已排序",
+      "柱配置：逆序",
+      "柱配置：近乎有序",
+      "柱配置：少量不同键"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E5_quick.png",
+      "figures/quick/E5_quick.pdf"
+    ],
+    "title": "排序阶段时间",
+    "experiment": "E5",
+    "quick": true,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "本地排序",
+      "采样",
+      "选择分割点",
+      "划分",
+      "数据交换",
+      "多路归并"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E6_quick.png",
+      "figures/quick/E6_quick.pdf"
+    ],
+    "title": "桶数与任务调度",
+    "experiment": "E6",
+    "quick": true,
+    "source_table": "tables/E6_quick.md",
+    "series": [
+      "静态",
+      "动态",
+      "引导"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E7_quick.png",
+      "figures/quick/E7_quick.pdf"
+    ],
+    "title": "NUMA 初始化与线程绑定",
+    "experiment": "E7",
+    "quick": true,
+    "source_table": "tables/E7_quick.md",
+    "series": [
+      "柱配置：OpenMP PSRS，紧邻，系统默认",
+      "柱配置：OpenMP PSRS，紧邻，交错内存",
+      "柱配置：OpenMP PSRS，不绑定，系统默认",
+      "柱配置：OpenMP PSRS，分散，系统默认",
+      "柱配置：OpenMP PSRS（串行初始化），紧邻，系统默认",
+      "柱配置：OpenMP PSRS（串行初始化），不绑定，系统默认",
+      "柱配置：OpenMP PSRS（串行初始化），分散，系统默认"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E8_quick.png",
+      "figures/quick/E8_quick.pdf"
+    ],
+    "title": "Pthreads 锁竞争",
+    "experiment": "E8",
+    "quick": true,
+    "source_table": "tables/E8_quick.md",
+    "series": [
+      "Pthreads 无锁桶排序",
+      "Pthreads 互斥锁桶排序"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E9_quick.png",
+      "figures/quick/E9_quick.pdf"
+    ],
+    "title": "MPI 通信与混合配置",
+    "experiment": "E9",
+    "quick": true,
+    "source_table": "tables/E9_quick.md",
+    "series": [
+      "MPI PSRS（Allgather 对照）",
+      "MPI PSRS",
+      "总时间",
+      "交换时间",
+      "排序总时间",
+      "初始 Scatter 分发",
+      "柱配置：2 进程 × 4 线程",
+      "柱配置：4 进程 × 2 线程",
+      "柱配置：8 进程 × 1 线程",
+      "柱配置：p=8，各进程本地生成",
+      "柱配置：p=8，根进程生成后分发",
+      "柱配置：p=64，各进程本地生成",
+      "柱配置：p=64，根进程生成后分发"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E10_quick.png",
+      "figures/quick/E10_quick.pdf"
+    ],
+    "title": "流水线批大小与 PSRS 对照",
+    "experiment": "E10",
+    "quick": true,
+    "source_table": "tables/E10_quick.md",
+    "series": [
+      "MPI 逐元素流水线",
+      "MPI PSRS",
+      "分块流水线，批大小=n/(2p)",
+      "分块流水线，批大小=n/(32p)",
+      "分块流水线，批大小=n/(8p)"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E11_quick.png",
+      "figures/quick/E11_quick.pdf"
+    ],
+    "title": "GPU 排序与数据传输",
+    "experiment": "E11",
+    "quick": true,
+    "source_table": "tables/E11_quick.md",
+    "series": [
+      "单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA）",
+      "单卡 GPU 采样排序（全局原子）（GPU 本地 NUMA）",
+      "单卡 Thrust 排序（GPU 本地 NUMA）",
+      "双卡 GPU 采样排序（不绑定），锁页主机内存中转",
+      "双卡 GPU 采样排序（GPU 本地 NUMA），锁页主机内存中转",
+      "单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA）：计算",
+      "单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA）：主机/设备复制",
+      "单卡 GPU 采样排序（全局原子）（GPU 本地 NUMA）：计算",
+      "单卡 GPU 采样排序（全局原子）（GPU 本地 NUMA）：主机/设备复制",
+      "单卡 Thrust 排序（GPU 本地 NUMA）：计算",
+      "单卡 Thrust 排序（GPU 本地 NUMA）：主机/设备复制",
+      "双卡 GPU 采样排序（不绑定），锁页主机内存中转：计算",
+      "双卡 GPU 采样排序（不绑定），锁页主机内存中转：主机/设备复制",
+      "双卡 GPU 采样排序（GPU 本地 NUMA），锁页主机内存中转：计算",
+      "双卡 GPU 采样排序（GPU 本地 NUMA），锁页主机内存中转：主机/设备复制"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E11_phases_quick.png",
+      "figures/quick/E11_phases_quick.pdf"
+    ],
+    "title": "GPU 阶段时间分解",
+    "experiment": "E11",
+    "quick": true,
+    "source_table": "tables/summary.csv",
+    "series": [
+      "本地排序",
+      "采样",
+      "选择分割点",
+      "划分",
+      "数据交换",
+      "多路归并",
+      "主机传至显卡",
+      "显卡传回主机",
+      "柱配置：单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA），p=1，n=16384",
+      "柱配置：单卡 GPU 采样排序（全局原子）（GPU 本地 NUMA），p=1，n=16384",
+      "柱配置：单卡 Thrust 排序（GPU 本地 NUMA），p=1，n=16384",
+      "柱配置：双卡 GPU 采样排序（GPU 本地 NUMA），p=2，n=16384",
+      "柱配置：单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA），p=1，n=65536",
+      "柱配置：单卡 GPU 采样排序（全局原子）（GPU 本地 NUMA），p=1，n=65536",
+      "柱配置：单卡 Thrust 排序（GPU 本地 NUMA），p=1，n=65536",
+      "柱配置：双卡 GPU 采样排序（GPU 本地 NUMA），p=2，n=65536",
+      "柱配置：双卡 GPU 采样排序（不绑定），p=2，n=262144",
+      "柱配置：双卡 GPU 采样排序（GPU 本地 NUMA），p=2，n=262144"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E12_quick.png",
+      "figures/quick/E12_quick.pdf"
+    ],
+    "title": "各实现总时间对照",
+    "experiment": "E12",
+    "quick": true,
+    "source_table": "tables/E12_quick.md",
+    "series": [
+      "柱配置：单卡 GPU 采样排序（层次化原子）（GPU 本地 NUMA），p=1，n=262144",
+      "柱配置：单卡 Thrust 排序（GPU 本地 NUMA），p=1，n=262144",
+      "柱配置：双卡 GPU 采样排序（GPU 本地 NUMA），p=2，n=262144",
+      "柱配置：MPI+OpenMP 混合（2 个 MPI 进程），p=8，n=262144",
+      "柱配置：OpenMP 等宽桶，p=8，n=262144",
+      "柱配置：GNU parallel sort（参考），p=8，n=262144",
+      "柱配置：OpenMP 任务快速排序（参考），p=8，n=262144",
+      "柱配置：串行 std::sort，p=1，n=262144"
+    ]
+  },
+  {
+    "paths": [
+      "figures/quick/E13_quick.png",
+      "figures/quick/E13_quick.pdf"
+    ],
+    "title": "Amdahl 拟合与 Karp–Flatt 指标",
+    "experiment": "E13",
+    "quick": true,
+    "source_table": "tables/E13_fits.json",
+    "series": [
+      "MPI+OpenMP 混合（2 个 MPI 进程）：拟合 f=0.615",
+      "MPI PSRS：拟合 f=0.276",
+      "OpenMP 等宽桶：拟合 f=0.167",
+      "OpenMP PSRS：拟合 f=0.388",
+      "GNU parallel sort（参考）：拟合 f=0.168",
+      "OpenMP 任务快速排序（参考）：拟合 f=0.536",
+      "MPI+OpenMP 混合（1 个 MPI 进程）",
+      "MPI+OpenMP 混合（2 个 MPI 进程）",
+      "MPI PSRS",
+      "OpenMP 等宽桶",
+      "OpenMP PSRS",
+      "GNU parallel sort（参考）",
+      "OpenMP 任务快速排序（参考）"
+    ]
+  }
+]

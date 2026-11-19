@@ -156,3 +156,9 @@ CSV 使用十进制 GB/s，Copy 每元素读取和写入共 16 字节，Triad �
 E2 的 128 线程 OpenMP 使用 `OMP_PLACES=threads`，CSV 的 `places` 记录实际设置；p≥16 同时比较 2 rank 与 8 rank 混合。E3 增加等宽桶和 8 rank 混合；总处理单元不足 8 时，固定 8 rank 的配置明确跳过。E9 比较 2/4/8 rank 混合，并在 p=8、64 各包含本地生成与 Scatter 的配对配置；快速模式也保留这些通信配置。
 
 Scatter 与输入生成发生在排序总计时之前，`scatter_ms` 单独记录。因此两种路径的 `total_ms` 比较仅代表排序，不能据此比较输入准备的完整成本。阶段表和数据包同时保留 Scatter 时间；`scatter_ms + total_ms` 也不包含 root 生成输入的时间。Amdahl 拟合区分混合 rank 数，并保留 64→128 的规定绑定切换对应的数据点。
+
+## 图表生成（T8）
+
+`python analysis/plot.py` 使用验证过字形覆盖的中文常规字体文件；找不到时退出并提示通过 conda 安装 `font-ttf-noto-cjk`。全部图例、标题和坐标集中使用中文名称，速度图采用以 2 为底的对数处理单元轴，并显示理想加速比。
+
+正式图保存在 `report/figures/`，快速图保存在 `report/figures/quick/`；缺少正式数据时显示明确的空数据说明图。每图 PNG/PDF 的路径、图题、数据来源和曲线含义登记在 `report/figures/manifest.json`。阶段图保留 MPI 最大值不可直接相加的说明；E9 分开显示排序和 Scatter，E11 另保留阶段分解图。正文的图片引用由撰写者依据数据包清单更新，脚本不改正文。
