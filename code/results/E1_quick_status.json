@@ -2,8 +2,12 @@
   "success": true,
   "experiment": "E1",
   "quick": true,
-  "started": 1795071054.0439122,
-  "runs": 0,
+  "run_id": "1f924c7888ed4f5c86a00470c03fb168",
+  "started": 1795073386.5470328,
+  "runs": 728,
   "skipped": [],
-  "finished": 1795071149.7269263
+  "configurations": [],
+  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E1_quick.csv",
+  "partial_csv": null,
+  "finished": 1795073481.6756203
 }

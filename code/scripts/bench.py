@@ -50,6 +50,7 @@ def run(exe,n,dist='uniform',threads=1,procs=1,variant=None,extra=(),env=None,pr
     command+=list(extra)
     child_env=dict(os.environ,OMP_NUM_THREADS=str(threads))
     child_env.update(env or {})
+    if threads==128 and 'OMP_PLACES' not in (env or {}):child_env['OMP_PLACES']='threads'
     for key in ('PARASORT_LAUNCHER','PARASORT_MPI_BIND'):child_env.pop(key,None)
     if exe in ('psrs_mpi','psrs_hybrid','pipeline_sort'):
         try:
@@ -108,6 +109,7 @@ def cpu(n,p,dist='uniform'):
     run('bucket_omp',n,dist,p);run('psrs_omp',n,dist,p)
     for variant in ('gnu_parallel','omp_task_qsort'):run('ref_sorts',n,dist,p,variant=variant)
     run('psrs_mpi',n,dist,procs=p);run('psrs_hybrid',n,dist,threads=max(1,p//2),procs=min(p,2))
+    if p>=16:run('psrs_hybrid',n,dist,threads=p//8,procs=8)
 
 def execute_experiment():
     e=args.experiment
@@ -122,7 +124,9 @@ def execute_experiment():
     elif e=='E3':
      unit=(1<<14) if args.quick else (1<<24)
      for p in PS:
-      n=unit*p;baseline(n);run('psrs_omp',n,threads=p);run('psrs_mpi',n,procs=p)
+      n=unit*p;baseline(n);run('psrs_omp',n,threads=p);run('bucket_omp',n,threads=p);run('psrs_mpi',n,procs=p)
+      if p>=8:run('psrs_hybrid',n,threads=p//8,procs=8)
+      else:plan['skipped'].append(f'psrs_hybrid E3: fixed 8 ranks requires p>=8; p={p}')
     elif e=='E4':
      n=size(28);p=8 if args.quick else 64
      for dist in DISTS:
@@ -170,8 +174,10 @@ def execute_experiment():
      for p in PS[1:]:
       for variant in ('psrs','allgather'):run('psrs_mpi',n,procs=p,variant=variant)
      total=8 if args.quick else 128
-     for ranks in ([2,4] if args.quick else [2,4,8]):run('psrs_hybrid',n,threads=total//ranks,procs=ranks)
-     run('psrs_mpi',n,procs=2,extra=['--scatter'])
+     for ranks in (2,4,8):run('psrs_hybrid',n,threads=total//ranks,procs=ranks)
+     for p in (8,64):
+      if p not in PS[1:]:run('psrs_mpi',n,procs=p)
+      run('psrs_mpi',n,procs=p,extra=['--scatter'])
     elif e=='E10':
      for p in ([2,4,8] if args.quick else [4,8,16,32,64]):run('pipeline_sort',p,procs=p,variant='elem')
      for exponent in ([20] if args.quick else [20,22,24]):

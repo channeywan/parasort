@@ -150,3 +150,9 @@ bash scripts/run_all.sh 2>&1 | tee results/logs/run_all.log
 CSV 使用十进制 GB/s，Copy 每元素读取和写入共 16 字节，Triad 两读一写共 24 字节。PSRS 只对归并阶段计算 `8*n/(merge_ms*1e6)` GB/s；不估算本地排序或划分的带宽。E14 正式图仅叠加完整 E2/E5 的归并数据，快速图只展示快速 STREAM。E14 在 E13 分析之前执行，以便同轮生成带宽图和数据包。
 
 本轮单配置健全性检查使用 2²⁸、128 线程、close，Triad 最好带宽约 40 GB/s，原始结果保存在 `results/validation/T5_stream128.csv`。已核对 `-O3 -march=native`、全部 128 个线程的不同 CPU 绑定和并行 first-touch。`T5_residency.log` 显示 6 GiB 页面没有均匀驻留在八个节点：节点 6 没有页面、节点 7 约 6.5 MiB。当前部分节点的大量文件缓存、`zone_reclaim_mode=0` 和跨节点分配影响了本地性；[内核说明](https://www.kernel.org/doc/html/v6.14/admin-guide/sysctl/vm.html#zone-reclaim-mode) 允许这种回退。本次值是当前页面分配条件下的实测有效带宽，不能当作硬件峰值。没有修改系统设置或改变默认内存策略；该检查也不替代 E14 完整矩阵。
+
+## 扩展性对照覆盖（T6）
+
+E2 的 128 线程 OpenMP 使用 `OMP_PLACES=threads`，CSV 的 `places` 记录实际设置；p≥16 同时比较 2 rank 与 8 rank 混合。E3 增加等宽桶和 8 rank 混合；总处理单元不足 8 时，固定 8 rank 的配置明确跳过。E9 比较 2/4/8 rank 混合，并在 p=8、64 各包含本地生成与 Scatter 的配对配置；快速模式也保留这些通信配置。
+
+Scatter 与输入生成发生在排序总计时之前，`scatter_ms` 单独记录。因此两种路径的 `total_ms` 比较仅代表排序，不能据此比较输入准备的完整成本。阶段表和数据包同时保留 Scatter 时间；`scatter_ms + total_ms` 也不包含 root 生成输入的时间。Amdahl 拟合区分混合 rank 数，并保留 64→128 的规定绑定切换对应的数据点。

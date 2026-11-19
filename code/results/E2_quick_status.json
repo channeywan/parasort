@@ -2,8 +2,8 @@
   "success": true,
   "experiment": "E2",
   "quick": true,
-  "run_id": "34e65bec6a0a4d8d9325ecc127068e53",
-  "started": 1795072348.038027,
+  "run_id": "de36e7d5d1ee43828106253d8dc74471",
+  "started": 1795073481.740819,
   "runs": 25,
   "skipped": [],
   "configurations": [
@@ -36,7 +36,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "std"
       ]
@@ -70,7 +70,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -102,7 +102,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -134,7 +134,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "gnu_parallel"
       ]
@@ -168,7 +168,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "omp_task_qsort"
       ]
@@ -209,7 +209,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -248,7 +248,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -280,7 +280,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -312,7 +312,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -344,7 +344,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "gnu_parallel"
       ]
@@ -378,7 +378,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "omp_task_qsort"
       ]
@@ -419,7 +419,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -458,7 +458,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -490,7 +490,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -522,7 +522,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -554,7 +554,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "gnu_parallel"
       ]
@@ -588,7 +588,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "omp_task_qsort"
       ]
@@ -629,7 +629,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -668,7 +668,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -700,7 +700,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -732,7 +732,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -764,7 +764,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "gnu_parallel"
       ]
@@ -798,7 +798,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv",
         "--variant",
         "omp_task_qsort"
       ]
@@ -839,7 +839,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     },
     {
@@ -878,11 +878,11 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.34e65bec6a0a4d8d9325ecc127068e53.csv"
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E2_quick.de36e7d5d1ee43828106253d8dc74471.csv"
       ]
     }
   ],
   "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E2_quick.csv",
   "partial_csv": null,
-  "finished": 1795072356.740933
+  "finished": 1795073490.3298569
 }

@@ -1,0 +1,7 @@
+PRECHECK: one-minute load=1.33
+PRECHECK: GPU process query unavailable (Command '['nvidia-smi', '--query-compute-apps=gpu_uuid,pid,process_name', '--format=csv,noheader']' returned non-zero exit status 9.); GPU backends will check availability.
+CUDA: enabled
+MPI: enabled
+make: Nothing to be done for 'all'.
+RUN E13 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E13.log
+DONE E13
