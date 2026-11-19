@@ -20,8 +20,8 @@
     "launcher": "mpich",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 10.532395777721803,
-    "f": 0.643,
+    "sse": 10.219706036079092,
+    "f": 0.664,
     "alpha_ms": 0,
     "points": 3
   },
@@ -46,8 +46,8 @@
     "launcher": "mpich",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 46.217216955622845,
-    "f": 0.323,
+    "sse": 46.766774073022674,
+    "f": 0.326,
     "alpha_ms": 0,
     "points": 4
   },
@@ -72,8 +72,8 @@
     "launcher": "none",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 5.91410651160246,
-    "f": 0.166,
+    "sse": 8.127919999675264,
+    "f": 0.175,
     "alpha_ms": 0,
     "points": 4
   },
@@ -98,8 +98,8 @@
     "launcher": "none",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 39.09880829113045,
-    "f": 0.469,
+    "sse": 67.60235719643939,
+    "f": 0.429,
     "alpha_ms": 0,
     "points": 4
   },
@@ -124,9 +124,9 @@
     "launcher": "none",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 3.480638710359881,
-    "f": 0.189,
-    "alpha_ms": 0,
+    "sse": 1.0357020529896745,
+    "f": 0.258,
+    "alpha_ms": 0.01921550201059327,
     "points": 4
   },
   {
@@ -150,8 +150,8 @@
     "launcher": "none",
     "gpu_affinity": "legacy",
     "exchange_path": "none",
-    "sse": 13.386414762931452,
-    "f": 0.552,
+    "sse": 2.349758644566209,
+    "f": 0.484,
     "alpha_ms": 0,
     "points": 4
   }

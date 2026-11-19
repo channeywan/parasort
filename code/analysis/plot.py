@@ -10,7 +10,7 @@ from matplotlib import font_manager
 ROOT=Path(__file__).resolve().parents[1];DEST=ROOT.parent/'report/figures';TABLES=ROOT.parent/'report/tables'
 plt.rcParams.update({'font.size':9,'axes.grid':True,'grid.alpha':.2})
 fonts={f.name for f in font_manager.fontManager.ttflist}
-for font in ['Noto Sans CJK SC','SimHei']:
+for font in ['Noto Sans CJK SC','Noto Serif CJK SC','SimHei']:
  if font in fonts:plt.rcParams['font.family']=font;break
 PHASES=['local_sort_ms','sampling_ms','splitters_ms','partition_ms','exchange_ms','merge_ms','h2d_ms','d2h_ms']
 def label(row):
@@ -41,12 +41,102 @@ def pivot_bars(data,index,columns,metric,ax):
   high=data.pivot_table(index=index,columns=columns,values='max_ms',aggfunc='max').reindex_like(values)
   error={col:[(values[col]-low[col]).clip(lower=0).tolist(),(high[col]-values[col]).clip(lower=0).tolist()] for col in values}
  values.plot.bar(ax=ax,rot=45,yerr=error,capsize=2)
+E4B_DISTRIBUTIONS={'uniform':'均匀分布','normal':'正态分布','hotkeys':'热点键','few_unique':'少量不同键'}
+E4B_CONTEXT=('host','n','seed','impl','variant','procs','gpus','buckets_per_thread',
+             'schedule','bind','batch','naive_atomics','scatter','mempolicy',
+             'mpi_bind','launcher','gpu_affinity','exchange_path')
+
+def e4b_subsets(data,quick):
+ """Select the specified scans, accepting tuning strings such as ``1.0``.
+
+ The p=64, k=1, hotkeys/tie-on observation belongs to both scans and is reused.
+ Other scales and implementations cannot silently enter an E4b curve.
+ """
+ data=data[data.experiment=='E4b'].copy()
+ if 'quick' in data:
+  mode=data.quick.map(lambda value:str(value).lower() in ('true','1','1.0'))
+  data=data[mode==bool(quick)].copy()
+ for column in ('n','units','threads','procs','gpus','oversample','tiebreak'):
+  data[column]=pd.to_numeric(data[column],errors='coerce')
+ data=data[(data.n==(1<<18 if quick else 1<<28))&(data.impl=='omp')&
+           (data.variant=='psrs')&(data.procs==1)&(data.gpus==0)&
+           (data.units==data.threads)]
+ oversample=data[(data.threads==64)&(data.tiebreak==1)&
+                 data.oversample.isin((1,2,4,8,16,32))&
+                 data.dist.isin(('uniform','normal','hotkeys'))].copy()
+ tiebreak=data[(data.oversample==1)&data.threads.isin((8,16,32,64,128))&
+               data.tiebreak.isin((0,1))&data.dist.isin(('hotkeys','few_unique'))].copy()
+ return oversample,tiebreak
+
+def e4b_context_groups(data):
+ """Keep hosts, seeds and fixed tuning settings on separate measured curves."""
+ if data.empty:return []
+ keys=[key for key in E4B_CONTEXT if key in data.columns]
+ varying=[key for key in keys if data[key].nunique(dropna=False)>1]
+ groups=[]
+ for _,group in data.groupby(keys,dropna=False,sort=True):
+  row=group.iloc[0]
+  suffix='，'+', '.join(f'{key}={row[key]}' for key in varying) if varying else ''
+  groups.append((suffix,group))
+ return groups
+
+def e4b_xaxis(ax,values,label):
+ ax.set_xscale('log',base=2)
+ ax.set_xticks(values,[str(value) for value in values])
+ ax.set_xlabel(label)
+
+def plot_e4b(data,quick):
+ oversample,tiebreak=e4b_subsets(data,quick)
+ suffix='_quick' if quick else ''
+ fig,axes=plt.subplots(2,2,figsize=(13,8))
+ for ax,dist in zip(axes.flat,('uniform','normal','hotkeys')):
+  right=ax.twinx()
+  for index,(context,group) in enumerate(e4b_context_groups(oversample[oversample.dist==dist])):
+   group=group.sort_values('oversample')
+   color=f'C{index%10}'
+   ax.plot(group.oversample,group.imbalance,'o-',color=color,label='失衡度'+context)
+   right.plot(group.oversample,group.median_ms,'s--',color=color,label='总时间'+context)
+  ax.set(title=E4B_DISTRIBUTIONS[dist],ylabel='失衡度')
+  right.set_ylabel('总时间 (ms)')
+  right.grid(False)
+  e4b_xaxis(ax,[1,2,4,8,16,32],'过采样系数 k')
+  handles,labels=ax.get_legend_handles_labels()
+  extra_handles,extra_labels=right.get_legend_handles_labels()
+  if handles:ax.legend(handles+extra_handles,labels+extra_labels,fontsize=7)
+  else:ax.text(.5,.5,'暂无符合参数的实测数据',ha='center',transform=ax.transAxes)
+ ax=axes[1,1]
+ for index,dist in enumerate(('uniform','normal','hotkeys')):
+  for context,group in e4b_context_groups(oversample[oversample.dist==dist]):
+   group=group.sort_values('oversample')
+   ax.plot(group.oversample,group.splitters_ms,'o-',color=f'C{index}',
+           label=E4B_DISTRIBUTIONS[dist]+context)
+ ax.set(title='选择分割点的开销',ylabel='分割点时间 (ms)')
+ e4b_xaxis(ax,[1,2,4,8,16,32],'过采样系数 k')
+ if ax.lines:ax.legend(fontsize=7)
+ else:ax.text(.5,.5,'暂无符合参数的实测数据',ha='center',transform=ax.transAxes)
+ save(fig,'E4b_oversample'+suffix)
+
+ fig,axes=plt.subplots(1,2,figsize=(12,4))
+ for ax,dist in zip(axes,('hotkeys','few_unique')):
+  for context,group in e4b_context_groups(tiebreak[tiebreak.dist==dist]):
+   for tie,values in group.groupby('tiebreak'):
+    values=values.sort_values('threads')
+    ax.plot(values.threads,values.imbalance,'o-' if tie else 's--',
+            color='C0' if tie else 'C1',
+            label=('开启复合键' if tie else '关闭复合键')+context)
+  ax.set(title=E4B_DISTRIBUTIONS[dist],ylabel='失衡度')
+  e4b_xaxis(ax,[8,16,32,64,128],'处理单元数 p')
+  if ax.lines:ax.legend(fontsize=7)
+  else:ax.text(.5,.5,'暂无符合参数的实测数据',ha='center',transform=ax.transAxes)
+ save(fig,'E4b_tiebreak'+suffix)
+
 def main():
  DEST.mkdir(parents=True,exist_ok=True);path=TABLES/'summary.csv'
  if not path.exists():print('Run summarize.py after collecting CSV results');return
  data=pd.read_csv(path,dtype={'tiebreak':str,'naive_atomics':str,'buckets_per_thread':str,'batch':str,'bind':str});data['label']=data.apply(label,axis=1)
  for quick in sorted(data.quick.unique()):
   all_data=data[data.quick==quick];suffix='_quick' if quick else ''
+  plot_e4b(all_data,quick)
   for number in range(2,14):
    e=f'E{number}';d=all_data[all_data.experiment==e].copy()
    if e=='E13':

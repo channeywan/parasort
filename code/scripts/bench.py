@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E1–E13 experiment matrices, with transactional per-experiment CSV output."""
+"""E1–E13 and E4b matrices, with transactional per-experiment CSV output."""
 import argparse
 import json
 import math
@@ -16,7 +16,7 @@ import uuid
 if '--dry-run' in sys.argv:
     sys.dont_write_bytecode = True
 from launch import launch_flags
-from run_experiments import atomic_json, install_termination_handler, run_command
+from run_experiments import EXPERIMENTS, atomic_json, install_termination_handler, run_command
 
 ROOT=Path(__file__).resolve().parents[1]
 DISTS=('uniform','normal','power','hotkeys','sorted','reverse','nearly_sorted','few_unique')
@@ -103,6 +103,23 @@ def execute_experiment():
      n=size(28);p=8 if args.quick else 64
      for dist in DISTS:
       baseline(n,dist);run('bucket_omp',n,dist,p);run('psrs_omp',n,dist,p,extra=['--no-tiebreak']);run('psrs_omp',n,dist,p)
+    elif e=='E4b':
+        n=(1<<18) if args.quick else (1<<28)
+        seen=set()
+        plan['matrix_notes']=['hotkeys、p=64、k=1、开启 tie-break 的相同配置由两组扫描共用，每轮只执行一次。']
+        def measure(dist,p,k,tiebreak):
+            identity=(dist,p,k,tiebreak)
+            if identity in seen:return
+            seen.add(identity)
+            options=['--oversample',str(k)]
+            if not tiebreak:options+=['--no-tiebreak']
+            run('psrs_omp',n,dist,threads=p,variant='psrs',extra=options,
+                env={'OMP_PLACES':'threads' if p==128 else 'cores'})
+        for dist in ('uniform','normal','hotkeys'):
+            for k in (1,2,4,8,16,32):measure(dist,64,k,True)
+        for dist in ('hotkeys','few_unique'):
+            for p in (8,16,32,64,128):
+                for tiebreak in (True,False):measure(dist,p,1,tiebreak)
     elif e=='E5':
      n=size(30);baseline(n)
      for p in ([2,4,8] if args.quick else [8,32,128]):run('psrs_omp',n,threads=p);run('psrs_mpi',n,procs=p)
@@ -157,7 +174,7 @@ def execute_experiment():
 def main(argv=None):
     global args,R,PS,result,status,plan,base_done,GPU,MPI,validation_result
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('experiment',choices=[f'E{i}' for i in range(1,14)])
+    parser.add_argument('experiment',choices=EXPERIMENTS)
     parser.add_argument('--quick',action='store_true')
     parser.add_argument('--dry-run',action='store_true')
     args=parser.parse_args(argv)

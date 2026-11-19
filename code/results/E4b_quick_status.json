@@ -1,0 +1,1480 @@
+{
+  "success": true,
+  "experiment": "E4b",
+  "quick": true,
+  "run_id": "22e8df0ba50c4103bb10723bcf176d0d",
+  "started": 1795072656.3480368,
+  "runs": 37,
+  "skipped": [],
+  "configurations": [
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "2"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "2"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "4"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "4"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "8"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "8"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "16"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "16"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "uniform",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "32"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "uniform",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "32"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "2"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "2"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "4"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "4"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "8"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "8"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "16"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "16"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "normal",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "32"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "normal",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "32"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "2"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "2"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "4"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "4"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "8"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "8"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "16"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "16"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "32"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "32"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 8,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "8",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 8,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "8",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 16,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "16",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 16,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "16",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 32,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "32",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 32,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "32",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 128,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "threads",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "128",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "hotkeys",
+      "threads": 128,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "threads",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "hotkeys",
+        "--threads",
+        "128",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 8,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "8",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 8,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "8",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 16,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "16",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 16,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "16",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 32,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "32",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 32,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "32",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 64,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "64",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 128,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "threads",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "128",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1"
+      ]
+    },
+    {
+      "executable": "psrs_omp",
+      "n": 262144,
+      "dist": "few_unique",
+      "threads": 128,
+      "procs": 1,
+      "variant": "psrs",
+      "options": [
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ],
+      "repeats": 2,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "threads",
+        "PARASORT_LAUNCHER": "",
+        "PARASORT_MPI_BIND": "",
+        "PARASORT_MEMPOLICY": ""
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_omp",
+        "--n",
+        "262144",
+        "--dist",
+        "few_unique",
+        "--threads",
+        "128",
+        "--repeat",
+        "2",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E4b_quick.22e8df0ba50c4103bb10723bcf176d0d.csv",
+        "--variant",
+        "psrs",
+        "--oversample",
+        "1",
+        "--no-tiebreak"
+      ]
+    }
+  ],
+  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E4b_quick.csv",
+  "partial_csv": null,
+  "matrix_notes": [
+    "hotkeys、p=64、k=1、开启 tie-break 的相同配置由两组扫描共用，每轮只执行一次。"
+  ],
+  "finished": 1795072658.4670558
+}

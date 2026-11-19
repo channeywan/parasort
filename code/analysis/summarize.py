@@ -27,6 +27,16 @@ def markdown(data):
   if isinstance(x,float):return f'{x:.5g}'
   return str(x).replace('|','/')
  return '| '+' | '.join(data.columns)+' |\n| '+' | '.join(['---']*len(data.columns))+' |\n'+''.join('| '+' | '.join(cell(x) for x in row)+' |\n' for row in data.itertuples(index=False,name=None))
+def e4b_table(data):
+ """Keep the two E4b scans readable without discarding their tuning keys."""
+ table=data[['dist','n','units','oversample','tiebreak','median_ms','splitters_ms','imbalance']].copy()
+ for column in ('n','units','oversample','tiebreak'):
+  table[column]=pd.to_numeric(table[column],errors='coerce')
+ table=table.sort_values(['dist','n','units','oversample','tiebreak'])
+ table['dist']=table.dist.replace({'uniform':'均匀分布','normal':'正态分布','hotkeys':'热点键','few_unique':'少量不同键'})
+ table['tiebreak']=table.tiebreak.map({0:'关闭',1:'开启'}).fillna('未知')
+ table.columns=['分布','规模 n','处理单元 p','过采样 k','复合键','总时间 (ms)','分割点时间 (ms)','失衡度']
+ return table
 def fit_models(summary):
  fits=[];data=summary[summary.experiment=='E2']
  identity=['quick','host','impl','variant','dist','n']+TUNING
@@ -64,7 +74,8 @@ def main():
  summary.to_csv(DEST/'summary.csv',index=False)
  cols=['impl','variant','dist','n','procs','threads','gpus','tiebreak','buckets_per_thread','schedule','median_ms','min_ms','max_ms','speedup','efficiency','imbalance']
  for (e,quick),data in summary.groupby(['experiment','quick']):
-  (DEST/f'{e}{"_quick" if quick else ""}.md').write_text(f'# {e} {"快速验证" if quick else "完整实验"}\n\n'+markdown(data[cols])+'\n加速比仅使用同一主机、seed、规模、分布的 seq/std 实测中位数。空值表示缺少基线。\n')
+  body='\n'.join(f'## 主机：{host}\n\n'+markdown(e4b_table(group)) for host,group in data.groupby('host',dropna=False)) if e=='E4b' else markdown(data[cols])
+  (DEST/f'{e}{"_quick" if quick else ""}.md').write_text(f'# {e} {"快速验证" if quick else "完整实验"}\n\n'+body+'\n加速比仅使用同一主机、seed、规模、分布的 seq/std 实测中位数。空值表示缺少基线。\n')
  fits=fit_models(summary);(DEST/'E13_fits.json').write_text(json.dumps(fits,indent=2,ensure_ascii=False))
  (DEST/'E13.md').write_text('# Amdahl 模型拟合\n\nT(p) = Tseq·[f+(1−f)/p] + α·(p−1)，约束 f∈[0,1]、α≥0。\n\n'+(markdown(pd.DataFrame(fits)[['quick','impl','variant','n','f','alpha_ms','sse','points']]) if fits else 'TODO(待服务器实测)：E2 至少需要三个不同处理单元数。')+'\n\nKarp–Flatt 指标见 summary.csv；模型参数仅为经验拟合，不能据此断言内在串行比例。\n')
  print(f'Wrote {len(summary)} measured configurations and {len(fits)} fits to {DEST}')
