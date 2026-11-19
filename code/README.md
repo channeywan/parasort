@@ -162,3 +162,11 @@ Scatter 与输入生成发生在排序总计时之前，`scatter_ms` 单独记�
 `python analysis/plot.py` 使用验证过字形覆盖的中文常规字体文件；找不到时退出并提示通过 conda 安装 `font-ttf-noto-cjk`。全部图例、标题和坐标集中使用中文名称，速度图采用以 2 为底的对数处理单元轴，并显示理想加速比。
 
 正式图保存在 `report/figures/`，快速图保存在 `report/figures/quick/`；缺少正式数据时显示明确的空数据说明图。每图 PNG/PDF 的路径、图题、数据来源和曲线含义登记在 `report/figures/manifest.json`。阶段图保留 MPI 最大值不可直接相加的说明；E9 分开显示排序和 Scatter，E11 另保留阶段分解图。正文的图片引用由撰写者依据数据包清单更新，脚本不改正文。
+
+## 报告数据接口（T7）
+
+E13 在统计、绘图之后自动执行 `python analysis/export_for_report.py`，默认只从完整实验的 `verified=1` CSV 导出 `report/data_bundle/`。没有完整数据的字段为 `null`，原因列入 `missing`；不会拿快速结果补齐。`affinity_fix` 是明确标记 `quick=true` 的独立绑定诊断。
+
+数据包包含关键数字及原始行溯源、每实验不超过八列的中文表格、图表清单、环境、方法和实现事实。`source` 相对 `report/`，`raw_sources.file` 相对仓库根目录；每条实测保留模式、主机、种子、规模、拓扑与调优配置。导出时重新读取原始 CSV，已有表格和拟合文件不能替代数据校验。
+
+需要查看快速快照时，显式执行 `python analysis/export_for_report.py --include-quick --output-dir /tmp/parasort-quick-bundle`，它只选择快速数据。正式交给报告撰写者的接口是默认 `report/data_bundle/`；报告正文由撰写者维护。

@@ -1,0 +1,673 @@
+{
+  "schema_version": "1",
+  "mode": "full",
+  "generated_at": "2026-11-19T17:31:23.539769+09:00",
+  "sources": [],
+  "load_issues": [],
+  "seq_std_2p30_ms": {
+    "value": null,
+    "unit": "ms",
+    "source": null,
+    "config": {
+      "experiment": "E2",
+      "impl": "seq",
+      "variant": "std",
+      "n": 1073741824,
+      "dist": "uniform"
+    },
+    "quick": false
+  },
+  "best_cpu": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E2"
+    },
+    "quick": false
+  },
+  "best_by_impl": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E2"
+    },
+    "quick": false
+  },
+  "speedup_64_vs_128": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E2"
+    },
+    "quick": false
+  },
+  "e4_skew": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E4"
+    },
+    "quick": false
+  },
+  "e4_hotkeys_tiebreak": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E4"
+    },
+    "quick": false
+  },
+  "e4b_oversample_best": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E4b"
+    },
+    "quick": false
+  },
+  "e4b_tiebreak_vs_p": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E4b"
+    },
+    "quick": false
+  },
+  "e5_phase_share": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E5"
+    },
+    "quick": false
+  },
+  "e6_best_schedule": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E6"
+    },
+    "quick": false
+  },
+  "e7_numa": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E7"
+    },
+    "quick": false
+  },
+  "e8_lock": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E8"
+    },
+    "quick": false
+  },
+  "e9_comm": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E9"
+    },
+    "quick": false
+  },
+  "e10_pipeline": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E10"
+    },
+    "quick": false
+  },
+  "e11_gpu": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E11"
+    },
+    "quick": false
+  },
+  "e12_overview": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E12"
+    },
+    "quick": false
+  },
+  "e13_amdahl": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E2"
+    },
+    "quick": false
+  },
+  "e14_bandwidth": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E14"
+    },
+    "quick": false
+  },
+  "correctness": {
+    "value": null,
+    "unit": "",
+    "source": null,
+    "config": {
+      "experiment": "E1"
+    },
+    "quick": false
+  },
+  "affinity_fix": {
+    "value": {
+      "timings": [
+        {
+          "config": {
+            "dist": "uniform",
+            "host": "ubuntu",
+            "impl": "mpi",
+            "n": 262144,
+            "procs": 2,
+            "seed": "42",
+            "threads": 1,
+            "variant": "psrs"
+          },
+          "before_ms": {
+            "value": 13.43361149995,
+            "unit": "ms",
+            "source": "../code/results/archive_pre_bindfix/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 2,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  24,
+                  25
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "after_ms": {
+            "value": 12.4155144999,
+            "unit": "ms",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 2,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  24,
+                  25
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "before_over_after": {
+            "value": 1.0820019983914642,
+            "unit": "x",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 2,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  24,
+                  25
+                ],
+                "verified": 1
+              },
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  24,
+                  25
+                ],
+                "verified": 1
+              }
+            ],
+            "formula": "median(before total_ms) / median(after total_ms)"
+          }
+        },
+        {
+          "config": {
+            "dist": "uniform",
+            "host": "ubuntu",
+            "impl": "mpi",
+            "n": 262144,
+            "procs": 4,
+            "seed": "42",
+            "threads": 1,
+            "variant": "psrs"
+          },
+          "before_ms": {
+            "value": 53.7739900001,
+            "unit": "ms",
+            "source": "../code/results/archive_pre_bindfix/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 4,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  36,
+                  37
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "after_ms": {
+            "value": 7.019732000119999,
+            "unit": "ms",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 4,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  36,
+                  37
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "before_over_after": {
+            "value": 7.660404984005195,
+            "unit": "x",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 4,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  36,
+                  37
+                ],
+                "verified": 1
+              },
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  36,
+                  37
+                ],
+                "verified": 1
+              }
+            ],
+            "formula": "median(before total_ms) / median(after total_ms)"
+          }
+        },
+        {
+          "config": {
+            "dist": "uniform",
+            "host": "ubuntu",
+            "impl": "mpi",
+            "n": 262144,
+            "procs": 8,
+            "seed": "42",
+            "threads": 1,
+            "variant": "psrs"
+          },
+          "before_ms": {
+            "value": 88.5171460001,
+            "unit": "ms",
+            "source": "../code/results/archive_pre_bindfix/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 8,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  48,
+                  49
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "after_ms": {
+            "value": 5.03742349997,
+            "unit": "ms",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 8,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  48,
+                  49
+                ],
+                "verified": 1
+              }
+            ]
+          },
+          "before_over_after": {
+            "value": 17.57190873481794,
+            "unit": "x",
+            "source": "../code/results/E2_quick.csv",
+            "config": {
+              "dist": "uniform",
+              "host": "ubuntu",
+              "impl": "mpi",
+              "n": 262144,
+              "procs": 8,
+              "seed": "42",
+              "threads": 1,
+              "variant": "psrs"
+            },
+            "quick": true,
+            "statistic": "median",
+            "raw_sources": [
+              {
+                "file": "code/results/E2_quick.csv",
+                "rows": [
+                  48,
+                  49
+                ],
+                "verified": 1
+              },
+              {
+                "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+                "rows": [
+                  48,
+                  49
+                ],
+                "verified": 1
+              }
+            ],
+            "formula": "median(before total_ms) / median(after total_ms)"
+          }
+        }
+      ],
+      "before_log": {
+        "source": "../code/results/validation/affinity_before.log",
+        "thread_masks": [
+          "rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu",
+          "rank=1 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=1 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu",
+          "rank=2 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=3 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu",
+          "rank=1 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=2 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=3 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu",
+          "rank=4 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=5 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu",
+          "rank=6 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu",
+          "rank=7 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu"
+        ]
+      },
+      "note": "独立的快速诊断，quick=true；每条 config 中 n 为实际规模，不作为完整实验结果。"
+    },
+    "source": "tables/E2_quick.md",
+    "quick": true
+  },
+  "diagnostic_sources": [
+    {
+      "file": "code/results/archive_pre_bindfix/E2_quick.csv",
+      "rows_total": 50,
+      "rows_verified": 50,
+      "rows_excluded": 0,
+      "sha256": "792f0eea984a250f7544f5e2eee920362164208f18760453c82514a3cb9d66a3",
+      "quick": true
+    },
+    {
+      "file": "code/results/E2_quick.csv",
+      "rows_total": 50,
+      "rows_verified": 50,
+      "rows_excluded": 0,
+      "sha256": "e278aaa65b4de52f153e4fc2b746691dbec9c1ca9edb72ca90585b7956e36ac9",
+      "quick": true
+    }
+  ],
+  "missing": [
+    {
+      "path": "seq_std_2p30_ms",
+      "reason": "缺少 n=2^30、uniform 的唯一串行 std::sort 基线",
+      "expected_config": {
+        "experiment": "E2",
+        "impl": "seq",
+        "variant": "std",
+        "n": 1073741824,
+        "dist": "uniform"
+      }
+    },
+    {
+      "path": "best_cpu",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E2"
+      }
+    },
+    {
+      "path": "best_by_impl",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E2"
+      }
+    },
+    {
+      "path": "speedup_64_vs_128",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E2"
+      }
+    },
+    {
+      "path": "e4_skew",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E4"
+      }
+    },
+    {
+      "path": "e4_hotkeys_tiebreak",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E4"
+      }
+    },
+    {
+      "path": "e4b_oversample_best",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E4b"
+      }
+    },
+    {
+      "path": "e4b_tiebreak_vs_p",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E4b"
+      }
+    },
+    {
+      "path": "e5_phase_share",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E5"
+      }
+    },
+    {
+      "path": "e6_best_schedule",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E6"
+      }
+    },
+    {
+      "path": "e7_numa",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E7"
+      }
+    },
+    {
+      "path": "e8_lock",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E8"
+      }
+    },
+    {
+      "path": "e9_comm",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E9"
+      }
+    },
+    {
+      "path": "e10_pipeline",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E10"
+      }
+    },
+    {
+      "path": "e11_gpu",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E11"
+      }
+    },
+    {
+      "path": "e12_overview",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E12"
+      }
+    },
+    {
+      "path": "e13_amdahl",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E2"
+      }
+    },
+    {
+      "path": "e14_bandwidth",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E14"
+      }
+    },
+    {
+      "path": "correctness",
+      "reason": "缺少所选模式下 verified=1 的完整匹配配置",
+      "expected_config": {
+        "experiment": "E1"
+      }
+    }
+  ]
+}

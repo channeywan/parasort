@@ -1,0 +1,13 @@
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.949s
+
+OK
+Exported full data to /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/report/data_bundle; 0 CSV files, 19 missing entries
+Exported quick data to /tmp/parasort-T7-accepted-quick; 14 CSV files, 3 missing entries
+SOURCE CROSSCHECK PASS E2 3.5562560000000003 {'file': 'code/results/E2_quick.csv', 'rows': [44, 45], 'verified': 1}
+SOURCE CROSSCHECK PASS E4 8.3466085 {'file': 'code/results/E4_quick.csv', 'rows': [12, 13], 'verified': 1}
+SOURCE CROSSCHECK PASS E5 13.867471 {'file': 'code/results/E5_quick.csv', 'rows': [4, 5], 'verified': 1}
+SOURCE CROSSCHECK PASS E6 4.3654985 {'file': 'code/results/E6_quick.csv', 'rows': [10, 11], 'verified': 1}
+SOURCE CROSSCHECK PASS E7 7.3924135 {'file': 'code/results/E7_quick.csv', 'rows': [8, 9], 'verified': 1}
+Full-only null/missing PASS; quick sources isolated; report SHA unchanged checked separately.

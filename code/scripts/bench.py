@@ -200,7 +200,7 @@ def execute_experiment():
       for p in (1,2,4,8,16,32,64,128):stream(n,p,bind)
     elif e=='E13':
      python=os.environ.get('PYTHON',sys.executable)
-     for script in ('analysis/summarize.py','analysis/plot.py'):
+     for script in ('analysis/summarize.py','analysis/plot.py','analysis/export_for_report.py'):
       command=[python,'-B',script]
       print('DRY RUN' if args.dry_run else 'RUN',shlex.join(command),flush=True)
       if not args.dry_run:run_command(command,cwd=ROOT,trace_path=ROOT/'results'/'commands.jsonl',metadata={'experiment':'E13','quick':args.quick,'run_id':plan['run_id'],'role':'analysis'})
