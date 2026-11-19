@@ -4,10 +4,10 @@ C++17 实现等宽桶排序、PSRS、Pthreads/OpenMP、MPI/混合排序、MPI �
 
 ## 环境与构建
 
-依赖安装**只使用 conda**。当前机器已为本项目创建 `/home/wcl/parasort/.conda`，使用已有的系统 g++ 与 CUDA 12.6，不修改系统软件。新机器可在项目根目录执行：
+依赖安装**只使用 conda**。项目环境位于 `<项目目录>/.conda`；可使用已有的系统 g++ 与 CUDA 12.6。仓库和解压后的提交包都可在项目根目录执行：
 
 ```bash
-conda env create --prefix ./.conda -f environment.yml
+conda env create --prefix ./.conda -f code/environment.yml
 conda activate ./.conda
 source code/scripts/activate.sh
 cd code
@@ -32,11 +32,11 @@ make -j8
 ./bin/psrs_omp --n 2^24 --threads 8 --oversample 8 --buckets-per-thread 4 --schedule dynamic
 ./bin/ref_sorts --n 2^24 --threads 8 --variant gnu_parallel
 ./bin/ref_sorts --n 2^24 --threads 8 --variant omp_task_qsort
-mpiexec -n 3 ./bin/psrs_mpi --n 1000003 --repeat 2
-mpiexec -n 3 ./bin/psrs_mpi --n 1000003 --variant allgather --scatter
-mpiexec -n 2 ./bin/psrs_hybrid --n 2^24 --threads 4
-mpiexec -n 4 ./bin/pipeline_sort --n 4 --variant elem
-mpiexec -n 3 ./bin/pipeline_sort --n 1000003 --variant block --batch 4096
+python3 scripts/launch.py --exe psrs_mpi --procs 3 --threads 1 -- --n 1000003 --repeat 2
+python3 scripts/launch.py --exe psrs_mpi --procs 3 --threads 1 -- --n 1000003 --variant allgather --scatter
+python3 scripts/launch.py --exe psrs_hybrid --procs 2 --threads 4 -- --n 2^24 --threads 4
+python3 scripts/launch.py --exe pipeline_sort --procs 4 --threads 1 -- --n 4 --variant elem
+python3 scripts/launch.py --exe pipeline_sort --procs 3 --threads 1 -- --n 1000003 --variant block --batch 4096
 CUDA_VISIBLE_DEVICES=0 ./bin/gpu_sort --n 2^24 --variant sample
 CUDA_VISIBLE_DEVICES=0 ./bin/gpu_sort --n 2^24 --variant sample --naive-atomics
 CUDA_VISIBLE_DEVICES=0,1 ./bin/gpu_multi --n 2^24
@@ -52,16 +52,16 @@ CUDA_VISIBLE_DEVICES=0,1 ./bin/gpu_multi --n 2^24
 
 ```bash
 # OpenMPI：64 物理核上的标准运行
-mpirun -np 64 --bind-to core --map-by core ./bin/psrs_mpi --n 2^30
+OMP_NUM_THREADS=1 OMP_PROC_BIND=false mpirun -np 64 --bind-to core --map-by core ./bin/psrs_mpi --n 2^30
 # OpenMPI：128 逻辑 CPU，需要显式启用超线程或 --oversubscribe
-mpirun -np 128 --use-hwthread-cpus --bind-to hwthread ./bin/psrs_mpi --n 2^30
+OMP_NUM_THREADS=1 OMP_PROC_BIND=false mpirun -np 128 --use-hwthread-cpus --bind-to hwthread --map-by hwthread ./bin/psrs_mpi --n 2^30
 # OpenMPI：每 socket 1 rank，每 rank 32 线程
 mpirun -np 2 --map-by ppr:1:package:PE=32 --bind-to core \
   -x OMP_NUM_THREADS=32 -x OMP_PROC_BIND=close -x OMP_PLACES=cores \
   ./bin/psrs_hybrid --n 2^30 --threads 32
 ```
 
-自动实验可通过 `MPIEXEC=mpirun MPIEXEC_FLAGS='--use-hwthread-cpus --oversubscribe'` 传入启动参数。MPICH 支持的亲和参数请查看该版本的 `mpiexec -help`，脚本默认不附加厂商专用绑定选项。
+常规实验通过 `scripts/launch.py` 自动识别 MPICH/OpenMPI，并生成相应绑定参数；设置 `MPIEXEC=mpirun` 可选择对应启动器。显式设置 `MPIEXEC_FLAGS` 会完整覆盖自动映射，记录 `mpi_bind=user` 并打印警告；应提供完整映射参数并运行亲和检查。MPICH 的具体参数以当前版本 `mpiexec -help` 为准。
 
 本机 `numactl -H` 报告 8 个 NUMA 节点。混合实验应同时比较 2 rank（每 socket）和 8 rank（每 NUMA 节点）。默认 `OMP_PROC_BIND=close OMP_PLACES=cores`；`--variant serial_init` 对 PSRS/桶排序提供串行初始化对照。MPI 动态接收缓冲大小需交换计数后才确定，其分配与 first-touch 计入 exchange 时间并写入 extra。
 
@@ -74,19 +74,19 @@ make test                         # 快速回归，含可用的 MPI/GPU
 bash tests/test_correctness.sh     # 完整参数矩阵，耗时较长
 bash tests/test_correctness.sh --quick --cpu-only
 bash scripts/run_all.sh --quick   # M8 冒烟实验及全部图表
-bash scripts/run_all.sh           # 设计中的完整 E1–E13 实验
+bash scripts/run_all.sh           # 完整 E1–E14 与 E4b 实验
 bash scripts/bench_e4.sh           # 单独执行分布与负载均衡实验
 python3 analysis/summarize.py
 python3 analysis/plot.py
 ```
 
-快速模式为兼顾 8 核机器的调试耗时，将规模除以 16 后再上限限制为 2^18，正式重复 2 次，常规实验处理单元最多 8（E4b 保留 64/128 线程扫描）；E3 每单元 2^14，E11 采用 2^14 和 2^16。它只验证实验链路，不能替代设计中 2^30 的性能结论。完整模式使用设计规模，正式重复 5 次、串行基线 3 次。实验多次执行会追加 CSV，请在一轮干净正式实验开始前将旧 results 目录重命名备份；保留 env.txt 和原始 CSV。
+快速模式为兼顾 8 核机器的调试耗时，将规模除以 16 后再上限限制为 2^18，正式重复 2 次，常规实验处理单元最多 8；E4b 保留最高 128 线程扫描，E9 保留 p=64 通信/Scatter 对照，E14 保留最高 128 线程带宽扫描。E3 每单元 2^14，E11 使用 2^14、2^16，并以 2^18 进行双卡 NUMA 对照。它只验证实验链路，不能替代设计中 2^30 的性能结论。完整模式使用设计规模，正式重复 5 次、串行基线 3 次。默认跳过同模式中已成功的实验；`--force` 会重新执行并在整项成功后原子替换对应 CSV，失败时保留原有成功数据和中间记录。单独直接运行排序程序的 `--csv` 仍采用追加方式。历史追溯日志保留，重新采集前可先备份 results。
 
 E1 快速矩阵包含全部八种分布的 CPU 边界测试，并缩减 MPI 启动次数；完整矩阵覆盖 n={0,1,2,7,1000,1000003}、p={1,2,3,7,8,16}，GPU 在驱动可用时加入。elem 按算法定义只测试 n=p。核心测试另检验按块生成一致性、checksum 故障检测、CLI 和重复键切分边界。失败返回非零；所有实验脚本遇到实际运行错误立即停止，缺失可选硬件则写 status.json。
 
-CSV 保持 DESIGN.md 的 22 列，单次重复一行。extra 保存 seed、schedule、oversample、tiebreak、桶数、批大小、GPU 路径等信息。`commands.jsonl` 保存实际执行命令。统计按主机、规模、分布、种子、并行配置和调优参数分组，快速/正式数据分开，所有加速比使用相匹配的 seq/std 基线。
+排序 CSV 保留统一的 22 列，单次正式重复一行；E14 使用独立的 STREAM 字段。extra 保存 seed、schedule、oversample、tiebreak、桶数、批大小、GPU 路径等信息。`commands.jsonl` 保存实际参数、环境、退出状态和配置；其中项目路径以 `code/` 为基准，环境路径记为 `../.conda`，执行时仍使用原始路径。统计按主机、规模、分布、种子、并行配置和调优参数分组，快速/正式数据分开，所有加速比使用相匹配的 seq/std 基线。
 
-图表写入 `../report/figures/`，表格写入 `../report/tables/`。每图同时保存 200 DPI PNG/PDF；无 GPU 时 E11 生成标有“measurements unavailable”的说明图，不伪造曲线。阶段时间在 MPI 中独立取各 rank 最大值，因此阶段最大值之和未必等于总时间最大值。GPU compute_ms 排除 H2D/D2H，total_ms 包括主机控制、内存申请和同步；两者并不简单相等。
+图表写入 `../report/figures/`，表格写入 `../report/tables/`。每图同时保存 200 DPI PNG/PDF；无 GPU 时 E11 生成中文缺数说明图，不伪造曲线。阶段时间在 MPI 中独立取各 rank 最大值，因此阶段最大值之和未必等于总时间最大值。GPU compute_ms 排除 H2D/D2H，total_ms 包括主机控制、内存申请和同步；两者并不简单相等。
 
 ## 实现中的边界处理
 
@@ -105,11 +105,13 @@ CSV 保持 DESIGN.md 的 22 列，单次重复一行。extra 保存 seed、sched
 
 所有 MPI 实验与回归通过 scripts/launch.py 集中配置启动器及环境。纯 MPI/流水线覆盖 OMP_PROC_BIND=false，MPICH 按 core 或 hwthread 映射；混合按 socket、NUMA 或成对 NUMA 映射，超出物理核数时使用 OMP_PLACES=threads。显式 MPIEXEC_FLAGS 优先并打印警告。
 
-运行 `bash scripts/check_affinity.sh` 检查 rank CPU 集合、混合线程分布与 p=8/p=2 的 2²² 元素性能健全性。绑定前快速数据保留于 results/archive_pre_bindfix，不用于正式统计。extra 的 launcher、mpi_bind 区分实际启动策略。
+运行 `bash scripts/check_affinity.sh --sanity` 检查 rank CPU 集合、混合线程分布与 p=8/p=2 的 2²² 元素性能健全性。绑定前快速数据保留于 results/archive_pre_bindfix，不用于正式统计。extra 的 launcher、mpi_bind 区分实际启动策略。
 
 ## GPU NUMA 绑定（T2）
 
 GPU 程序默认 `--gpu-affinity numa`，通过设备 PCI 地址读取 sysfs NUMA 节点，将驱动线程绑定到该节点 CPU；`--gpu-affinity none` 用于对照。每卡 pinned 输入、输出及中转由对应驱动线程在绑定后分配并首次写入，排序和采样默认参数保持不变。标准错误日志记录实际 CPU 集合；CSV 记录请求策略、实际绑定或失败原因。E11 包含双卡 numa/none 对照。
+
+统计和数据包同时区分请求策略与 `gpu_affinity_actual`；绑定失败的数据保留其原因，不会合并到绑定成功的测量或作为成功 NUMA 对照。
 
 ## 正式实验
 
@@ -129,6 +131,8 @@ bash scripts/run_all.sh 2>&1 | tee results/logs/run_all.log
 ```
 
 `--only E2,E4` 只执行指定实验，`--force` 重跑成功项目，`--quick` 与正式结果分开维护续跑状态。每个实验写入临时 CSV，全部成功后原子替换对应结果；失败和 Ctrl-C 会保留失败状态与中间文件，再次运行从未成功的实验继续，避免将半轮数据混入统计。成功项目的状态在 `results/*_status.json`，日志在 `results/logs/<实验>.log`，命令及退出状态记录在 `results/commands.jsonl`。
+
+E13 记录所使用的完整和快速 CSV 的 SHA256；任一输入更新后，原分析成功状态失效。同轮有上游实验待执行时，选中的 E13 会排在最后重新生成统计、图表和数据包；`--only E2` 仍只执行 E2，随后默认续跑会更新 E13。
 
 `--dry-run` 列出实际参数和粗略耗时，仅用于安排机时，不生成 CSV、状态或环境记录；估时不能用于报告。起跑时记录机器信息、Git 提交和时间，检查 1 分钟负载及 GPU 计算进程。负载大于 2 时需要在终端确认，非交互环境应先检查负载来源，再明确使用 `--ignore-load`。机器信息和开始/结束时间保存在 `results/env.txt`。
 
@@ -185,3 +189,30 @@ bash tests/compare_fingerprints.sh compare results/validation/before.json result
 ```
 
 本轮前后测试证据分别保存在 `results/validation/T9_before_*` 与 `T9_after_*`，代码结构等价检查在 `T9_equivalence.log`，输出比较在 `T9_fingerprint_compare.log`。快速正确性和百万/千万级 GPU 回归分别写入独立验证 CSV，保留正式实验原始文件。
+
+
+## 可移植提交包（T10）
+
+`code/environment.yml` 是随提交包保留的 conda 环境配方，与仓库根目录的配方一致。依赖安装继续只使用 conda；编译器和 CUDA 工具链按前文配置。
+
+在项目根目录清理历史记录中的项目路径，然后生成提交包：
+
+```bash
+python3 code/scripts/sanitize_paths.py --dry-run
+python3 code/scripts/sanitize_paths.py
+bash code/scripts/package.sh 000 测试
+```
+
+清理脚本从当前项目、当前项目 conda 环境及其原始位置推导路径；迁移了旧日志时可重复添加 `--old-root <旧项目目录>`。它只修改 JSON/JSONL、日志和 env.txt 中的路径，保留实测 CSV 和归档数据。提交包生成在项目目录外，结构为 `<学号>-<姓名>/code/` 和 `<学号>-<姓名>/report/`；包含现有 report.docx/report.pdf，排除环境、bin/build、对象文件、缓存、绑定修复前归档，以及供撰写者使用的 data_bundle。脚本用 zipinfo 检查条目并打印大小，超过 50 MiB 时提示。
+
+请在 `report/figures/screenshots/` 手工保存以下五张截图；目录中的 `.gitkeep` 仅保留目录：
+
+| 文件名 | 内容 |
+| --- | --- |
+| `01_build.png` | make 编译成功 |
+| `02_tests_pass.png` | E1 全部 PASS |
+| `03_htop_128.png` | 128 线程运行时的 htop |
+| `04_nvidia_smi_dual.png` | 双 GPU 同时有计算负载 |
+| `05_env.png` | lscpu、numactl -H、nvidia-smi topo -m |
+
+报告正文和最终排版由撰写者维护；完成个人信息、截图及排版后使用真实学号和姓名重新打包。

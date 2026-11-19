@@ -3,6 +3,6 @@ PRECHECK: no existing GPU compute processes.
 CUDA: enabled
 MPI: enabled
 make: Nothing to be done for 'all'.
-RUN E4b (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E4b.log
+RUN E4b (quick) -> ./results/logs/E4b.log
 DONE E4b
 ACCEPTANCE:74 verified rows; n=262144,p=64,hotkeys,seed=42,k=1; tie0=4.53491210938,tie1=1.25366210938; thresholds PASS. Quick diagnostic only.

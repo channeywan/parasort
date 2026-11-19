@@ -26,7 +26,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "16384",
         "--dist",
@@ -36,7 +36,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "std"
       ]
@@ -60,7 +60,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "16384",
         "--dist",
@@ -70,7 +70,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "thrust"
       ]
@@ -94,7 +94,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "16384",
         "--dist",
@@ -104,7 +104,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "sample"
       ]
@@ -130,7 +130,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "16384",
         "--dist",
@@ -140,7 +140,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "sample",
         "--naive-atomics"
@@ -165,7 +165,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_multi",
+        "./bin/gpu_multi",
         "--n",
         "16384",
         "--dist",
@@ -175,7 +175,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv"
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv"
       ]
     },
     {
@@ -197,7 +197,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "65536",
         "--dist",
@@ -207,7 +207,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "std"
       ]
@@ -231,7 +231,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "65536",
         "--dist",
@@ -241,7 +241,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "thrust"
       ]
@@ -265,7 +265,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "65536",
         "--dist",
@@ -275,7 +275,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "sample"
       ]
@@ -301,7 +301,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_sort",
+        "./bin/gpu_sort",
         "--n",
         "65536",
         "--dist",
@@ -311,7 +311,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "sample",
         "--naive-atomics"
@@ -336,7 +336,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_multi",
+        "./bin/gpu_multi",
         "--n",
         "65536",
         "--dist",
@@ -346,7 +346,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv"
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv"
       ]
     },
     {
@@ -368,7 +368,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "262144",
         "--dist",
@@ -378,7 +378,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--variant",
         "std"
       ]
@@ -405,7 +405,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_multi",
+        "./bin/gpu_multi",
         "--n",
         "262144",
         "--dist",
@@ -415,7 +415,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--gpu-affinity",
         "numa"
       ]
@@ -442,7 +442,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/gpu_multi",
+        "./bin/gpu_multi",
         "--n",
         "262144",
         "--dist",
@@ -452,13 +452,13 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
+        "./results/.pending/E11_quick.78bc0db26519493e96cc6d0e2240fd18.csv",
         "--gpu-affinity",
         "none"
       ]
     }
   ],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E11_quick.csv",
+  "csv": "./results/E11_quick.csv",
   "partial_csv": null,
   "finished": 1795073535.1897414
 }

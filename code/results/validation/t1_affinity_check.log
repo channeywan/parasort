@@ -75,16 +75,16 @@ ERROR ranks=5,7 overlap=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,
 ERROR ranks=6,7 overlap=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127 hostname=ubuntu
 AFFINITY BAD
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 2 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 2 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
 rank=1 thread=0 cpu=1 cpuset=1,65 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 4 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 4 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -95,8 +95,8 @@ rank=3 rank_cpuset=3,67 hostname=ubuntu
 rank=3 thread=0 cpu=3 cpuset=3,67 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 8 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 8 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -115,8 +115,8 @@ rank=7 rank_cpuset=7,71 hostname=ubuntu
 rank=7 thread=0 cpu=71 cpuset=7,71 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 16 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 16 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 16 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 16 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -151,8 +151,8 @@ rank=15 rank_cpuset=15,79 hostname=ubuntu
 rank=15 thread=0 cpu=15 cpuset=15,79 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=socket
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 8 --
-LAUNCH mpiexec -bind-to socket -map-by socket -n 2 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=socket
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 8 --
+LAUNCH mpiexec -bind-to socket -map-by socket -n 2 ./bin/affinity_probe OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=socket
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=65 cpuset=1,65 hostname=ubuntu
@@ -173,8 +173,8 @@ rank=1 thread=6 cpu=102 cpuset=38,102 hostname=ubuntu
 rank=1 thread=7 cpu=103 cpuset=39,103 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=numa:2
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 4 --
-LAUNCH mpiexec -bind-to numa:2 -map-by numa:2 -n 4 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa:2
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 4 --
+LAUNCH mpiexec -bind-to numa:2 -map-by numa:2 -n 4 ./bin/affinity_probe OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa:2
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=65 cpuset=1,65 hostname=ubuntu
@@ -197,8 +197,8 @@ rank=3 thread=2 cpu=114 cpuset=50,114 hostname=ubuntu
 rank=3 thread=3 cpu=115 cpuset=51,115 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=numa
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 2 --
-LAUNCH mpiexec -bind-to numa -map-by numa -n 8 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 2 --
+LAUNCH mpiexec -bind-to numa -map-by numa -n 8 ./bin/affinity_probe OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,64,65,66,67,68,69,70,71 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=1 cpuset=1,65 hostname=ubuntu

@@ -1,4 +1,4 @@
-make: Entering directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'
+make: Entering directory '.'
 CUDA: enabled
 MPI: enabled
 g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra -c src/common/csv.cpp -o build/common/csv.o
@@ -13,4 +13,4 @@ mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra sr
 nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_sort.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_sort
 nvcc -O3 -std=c++17 -arch=sm_89 -ccbin /usr/bin/g++ -Xcompiler -fopenmp -Xcompiler -pthread -Iinclude src/cuda/gpu_multi.cu build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -o bin/gpu_multi
 g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra tests/test_core.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/test_core
-make: Leaving directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort/code'
+make: Leaving directory '.'

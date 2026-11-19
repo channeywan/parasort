@@ -26,7 +26,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "262144",
         "--dist",
@@ -36,7 +36,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "std"
       ]
@@ -60,7 +60,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -70,7 +70,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "locked"
       ]
@@ -94,7 +94,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -104,7 +104,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "local"
       ]
@@ -128,7 +128,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -138,7 +138,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "locked"
       ]
@@ -162,7 +162,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -172,7 +172,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "local"
       ]
@@ -196,7 +196,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -206,7 +206,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "locked"
       ]
@@ -230,7 +230,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -240,7 +240,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "local"
       ]
@@ -264,7 +264,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -274,7 +274,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "locked"
       ]
@@ -298,7 +298,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/bucket_pthreads",
+        "./bin/bucket_pthreads",
         "--n",
         "262144",
         "--dist",
@@ -308,13 +308,13 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
+        "./results/.pending/E8_quick.c3e89fd656fd405099bf6c27ef08f28e.csv",
         "--variant",
         "local"
       ]
     }
   ],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E8_quick.csv",
+  "csv": "./results/E8_quick.csv",
   "partial_csv": null,
   "finished": 1795073505.4445133
 }

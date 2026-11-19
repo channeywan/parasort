@@ -3,31 +3,31 @@ PRECHECK: no existing GPU compute processes.
 CUDA: enabled
 MPI: enabled
 make: Nothing to be done for 'all'.
-RUN E1 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E1.log
+RUN E1 (quick) -> ./results/logs/E1.log
 DONE E1
-RUN E2 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E2.log
+RUN E2 (quick) -> ./results/logs/E2.log
 DONE E2
-RUN E3 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E3.log
+RUN E3 (quick) -> ./results/logs/E3.log
 DONE E3
-RUN E4 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E4.log
+RUN E4 (quick) -> ./results/logs/E4.log
 DONE E4
-RUN E4b (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E4b.log
+RUN E4b (quick) -> ./results/logs/E4b.log
 DONE E4b
-RUN E5 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E5.log
+RUN E5 (quick) -> ./results/logs/E5.log
 DONE E5
-RUN E6 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E6.log
+RUN E6 (quick) -> ./results/logs/E6.log
 DONE E6
-RUN E7 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E7.log
+RUN E7 (quick) -> ./results/logs/E7.log
 DONE E7
-RUN E8 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E8.log
+RUN E8 (quick) -> ./results/logs/E8.log
 DONE E8
-RUN E9 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E9.log
+RUN E9 (quick) -> ./results/logs/E9.log
 DONE E9
-RUN E10 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E10.log
+RUN E10 (quick) -> ./results/logs/E10.log
 DONE E10
-RUN E11 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E11.log
+RUN E11 (quick) -> ./results/logs/E11.log
 DONE E11
-RUN E12 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E12.log
+RUN E12 (quick) -> ./results/logs/E12.log
 DONE E12
-RUN E14 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E14.log
+RUN E14 (quick) -> ./results/logs/E14.log
 DONE E14

@@ -22,6 +22,7 @@ if "--dry-run" in sys.argv:
 from launch import launch_flags
 from run_experiments import (
     EXPERIMENTS,
+    analysis_inputs,
     atomic_json,
     install_termination_handler,
     run_command,
@@ -541,7 +542,18 @@ def main(argv=None):
     try:
         GPU = available_gpu()
         MPI = bool(shutil.which(os.environ.get("MPIEXEC", "mpiexec")))
+        inputs = (
+            analysis_inputs(args.quick, ROOT / "results")
+            if args.experiment == "E13"
+            else None
+        )
         execute_experiment()
+        if args.experiment == "E13":
+            if analysis_inputs(args.quick, ROOT / "results") != inputs:
+                raise RuntimeError(
+                    "analysis input CSVs changed during E13; rerun analysis"
+                )
+            plan["analysis_inputs"] = inputs
         if args.experiment == "E1":
             validation = json.loads(validation_result.read_text())
             if not validation.get("success"):

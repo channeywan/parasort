@@ -3,9 +3,9 @@ PRECHECK: no existing GPU compute processes.
 CUDA: enabled
 MPI: enabled
 make: Nothing to be done for 'all'.
-RUN E2 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E2.log
+RUN E2 (quick) -> ./results/logs/E2.log
 DONE E2
-RUN E4 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E4.log
+RUN E4 (quick) -> ./results/logs/E4.log
 Interrupted; completed experiments are preserved. Rerun the same command to resume.
 RESUME: skip successful E2 (quick).
 PRECHECK: one-minute load=0.35
@@ -13,6 +13,6 @@ PRECHECK: no existing GPU compute processes.
 CUDA: enabled
 MPI: enabled
 make: Nothing to be done for 'all'.
-RUN E4 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E4.log
+RUN E4 (quick) -> ./results/logs/E4.log
 DONE E4
 ACCEPTANCE PASS: Ctrl-C retained partial data, canonical data unchanged; resume skipped E2 and restarted E4.

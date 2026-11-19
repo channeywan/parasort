@@ -1,16 +1,16 @@
 Allowed physical cores: 64; sockets: 2; NUMA nodes: 8
 MPI implementation: HYDRA build details:
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 2 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 2 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
 rank=1 thread=0 cpu=1 cpuset=1,65 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 4 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 4 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -21,8 +21,8 @@ rank=3 rank_cpuset=3,67 hostname=ubuntu
 rank=3 thread=0 cpu=3 cpuset=3,67 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 8 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 8 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -41,8 +41,8 @@ rank=7 rank_cpuset=7,71 hostname=ubuntu
 rank=7 thread=0 cpu=71 cpuset=7,71 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=core
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 16 --threads 1 --
-LAUNCH mpiexec -bind-to core -map-by core -n 16 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 16 --threads 1 --
+LAUNCH mpiexec -bind-to core -map-by core -n 16 ./bin/affinity_probe OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 rank=0 rank_cpuset=0,64 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=1 rank_cpuset=1,65 hostname=ubuntu
@@ -77,8 +77,8 @@ rank=15 rank_cpuset=15,79 hostname=ubuntu
 rank=15 thread=0 cpu=15 cpuset=15,79 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=socket
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 8 --
-LAUNCH mpiexec -bind-to socket -map-by socket -n 2 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=socket
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 2 --threads 8 --
+LAUNCH mpiexec -bind-to socket -map-by socket -n 2 ./bin/affinity_probe OMP_NUM_THREADS=8 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=socket
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=65 cpuset=1,65 hostname=ubuntu
@@ -99,8 +99,8 @@ rank=1 thread=6 cpu=102 cpuset=38,102 hostname=ubuntu
 rank=1 thread=7 cpu=103 cpuset=39,103 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=numa:2
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 4 --
-LAUNCH mpiexec -bind-to numa:2 -map-by numa:2 -n 4 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa:2
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 4 --threads 4 --
+LAUNCH mpiexec -bind-to numa:2 -map-by numa:2 -n 4 ./bin/affinity_probe OMP_NUM_THREADS=4 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa:2
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79 hostname=ubuntu
 rank=0 thread=0 cpu=0 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=65 cpuset=1,65 hostname=ubuntu
@@ -123,8 +123,8 @@ rank=3 thread=2 cpu=114 cpuset=50,114 hostname=ubuntu
 rank=3 thread=3 cpu=115 cpuset=51,115 hostname=ubuntu
 AFFINITY OK
 ENV OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores PARASORT_LAUNCHER=mpich PARASORT_MPI_BIND=numa
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 2 --
-LAUNCH mpiexec -bind-to numa -map-by numa -n 8 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/affinity_probe OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa
+$ ../.conda/bin/python3 scripts/launch.py --exe affinity_probe --procs 8 --threads 2 --
+LAUNCH mpiexec -bind-to numa -map-by numa -n 8 ./bin/affinity_probe OMP_NUM_THREADS=2 OMP_PROC_BIND=close OMP_PLACES=cores launcher=mpich mpi_bind=numa
 rank=0 rank_cpuset=0,1,2,3,4,5,6,7,64,65,66,67,68,69,70,71 hostname=ubuntu
 rank=0 thread=0 cpu=64 cpuset=0,64 hostname=ubuntu
 rank=0 thread=1 cpu=1 cpuset=1,65 hostname=ubuntu
@@ -150,16 +150,16 @@ rank=7 rank_cpuset=56,57,58,59,60,61,62,63,120,121,122,123,124,125,126,127 hostn
 rank=7 thread=0 cpu=120 cpuset=56,120 hostname=ubuntu
 rank=7 thread=1 cpu=57 cpuset=57,121 hostname=ubuntu
 AFFINITY OK
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe psrs_mpi --procs 2 --threads 1 -- --n 4194304 --repeat 5 --csv /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/validation/mpi_sanity.csv
-LAUNCH mpiexec -bind-to core -map-by core -n 2 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi --n 4194304 --repeat 5 --csv /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/validation/mpi_sanity.csv OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe psrs_mpi --procs 2 --threads 1 -- --n 4194304 --repeat 5 --csv ./results/validation/mpi_sanity.csv
+LAUNCH mpiexec -bind-to core -map-by core -n 2 ./bin/psrs_mpi --n 4194304 --repeat 5 --csv ./results/validation/mpi_sanity.csv OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 timestamp,host,impl,variant,dist,n,procs,threads,gpus,repeat_id,total_ms,local_sort_ms,sampling_ms,splitters_ms,partition_ms,exchange_ms,merge_ms,h2d_ms,d2h_ms,imbalance,verified,extra
 2026-11-19T06:50:25Z,"ubuntu",mpi,"psrs",uniform,4194304,2,1,0,0,228.473885,148.559832,0.047659,0.034915,0.001643,11.579465,68.299162,0,0,1.00011301041,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
 2026-11-19T06:50:26Z,"ubuntu",mpi,"psrs",uniform,4194304,2,1,0,1,227.403186,148.630928,0.366275,0.029776,0.001663,10.570619,68.276349,0,0,1.00011301041,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
 2026-11-19T06:50:26Z,"ubuntu",mpi,"psrs",uniform,4194304,2,1,0,2,224.917899,148.669289,0.308126,0.008356,0.001352,7.925843,68.297309,0,0,1.00011301041,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
 2026-11-19T06:50:26Z,"ubuntu",mpi,"psrs",uniform,4194304,2,1,0,3,224.885358,148.695418,0.319086,0.008716,0.001372,7.928038,68.237196,0,0,1.00011301041,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
 2026-11-19T06:50:27Z,"ubuntu",mpi,"psrs",uniform,4194304,2,1,0,4,229.610344,151.437146,3.218058,0.009989,0.002344,9.883454,68.206419,0,0,1.00011301041,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
-$ /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 scripts/launch.py --exe psrs_mpi --procs 8 --threads 1 -- --n 4194304 --repeat 5 --csv /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/validation/mpi_sanity.csv
-LAUNCH mpiexec -bind-to core -map-by core -n 8 /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi --n 4194304 --repeat 5 --csv /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/validation/mpi_sanity.csv OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
+$ ../.conda/bin/python3 scripts/launch.py --exe psrs_mpi --procs 8 --threads 1 -- --n 4194304 --repeat 5 --csv ./results/validation/mpi_sanity.csv
+LAUNCH mpiexec -bind-to core -map-by core -n 8 ./bin/psrs_mpi --n 4194304 --repeat 5 --csv ./results/validation/mpi_sanity.csv OMP_NUM_THREADS=1 OMP_PROC_BIND=false OMP_PLACES=cores launcher=mpich mpi_bind=core
 timestamp,host,impl,variant,dist,n,procs,threads,gpus,repeat_id,total_ms,local_sort_ms,sampling_ms,splitters_ms,partition_ms,exchange_ms,merge_ms,h2d_ms,d2h_ms,imbalance,verified,extra
 2026-11-19T06:50:28Z,"ubuntu",mpi,"psrs",uniform,4194304,8,1,0,0,60.8618239999,33.948431,0.680633,0.041327,0.001864,7.348513,19.662133,0,0,1.00652885437,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"
 2026-11-19T06:50:28Z,"ubuntu",mpi,"psrs",uniform,4194304,8,1,0,1,61.5904380002,33.901163,0.634867,0.05374,0.001633,8.065764,19.695956,0,0,1.00652885437,1,"seed=42;oversample=1;buckets_per_thread=1;schedule=static;tiebreak=1;verify=1;bind=false;launcher=mpich;mpi_bind=core;scatter=0;scatter_ms=0.000000;receive_allocation_timed=1"

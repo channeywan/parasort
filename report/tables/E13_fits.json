@@ -20,6 +20,7 @@
     "mpi_bind": "socket",
     "launcher": "mpich",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 15.981374995723076,
     "f": 0.615,
@@ -58,6 +59,7 @@
           "mpi_bind": "socket",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -90,6 +92,7 @@
           "mpi_bind": "socket",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -122,6 +125,7 @@
           "mpi_bind": "socket",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }
@@ -148,6 +152,7 @@
     "mpi_bind": "core",
     "launcher": "mpich",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 48.474985050119834,
     "f": 0.276,
@@ -186,6 +191,7 @@
           "mpi_bind": "core",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -218,6 +224,7 @@
           "mpi_bind": "core",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -250,6 +257,7 @@
           "mpi_bind": "core",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -282,6 +290,7 @@
           "mpi_bind": "core",
           "launcher": "mpich",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }
@@ -308,6 +317,7 @@
     "mpi_bind": "none",
     "launcher": "none",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 6.631953125209753,
     "f": 0.167,
@@ -346,6 +356,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -378,6 +389,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -410,6 +422,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -442,6 +455,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }
@@ -468,6 +482,7 @@
     "mpi_bind": "none",
     "launcher": "none",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 58.95904156194551,
     "f": 0.388,
@@ -506,6 +521,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -538,6 +554,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -570,6 +587,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -602,6 +620,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }
@@ -628,6 +647,7 @@
     "mpi_bind": "none",
     "launcher": "none",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 3.5272687410938937,
     "f": 0.168,
@@ -666,6 +686,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -698,6 +719,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -730,6 +752,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -762,6 +785,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }
@@ -788,6 +812,7 @@
     "mpi_bind": "none",
     "launcher": "none",
     "gpu_affinity": "legacy",
+    "gpu_affinity_actual": "legacy",
     "exchange_path": "none",
     "sse": 14.879849333850522,
     "f": 0.536,
@@ -826,6 +851,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -858,6 +884,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -890,6 +917,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       },
@@ -922,6 +950,7 @@
           "mpi_bind": "none",
           "launcher": "none",
           "gpu_affinity": "legacy",
+          "gpu_affinity_actual": "legacy",
           "exchange_path": "none"
         }
       }

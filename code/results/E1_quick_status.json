@@ -7,7 +7,7 @@
   "runs": 728,
   "skipped": [],
   "configurations": [],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E1_quick.csv",
+  "csv": "./results/E1_quick.csv",
   "partial_csv": null,
   "finished": 1795073481.6756203
 }

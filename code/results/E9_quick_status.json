@@ -26,7 +26,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "262144",
         "--dist",
@@ -36,7 +36,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "std"
       ]
@@ -67,7 +67,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -77,7 +77,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "psrs"
       ]
@@ -108,7 +108,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -118,7 +118,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "allgather"
       ]
@@ -149,7 +149,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -159,7 +159,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "psrs"
       ]
@@ -190,7 +190,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -200,7 +200,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "allgather"
       ]
@@ -231,7 +231,7 @@
         "core",
         "-n",
         "8",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -241,7 +241,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "psrs"
       ]
@@ -272,7 +272,7 @@
         "core",
         "-n",
         "8",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -282,7 +282,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--variant",
         "allgather"
       ]
@@ -313,7 +313,7 @@
         "socket",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_hybrid",
+        "./bin/psrs_hybrid",
         "--n",
         "262144",
         "--dist",
@@ -323,7 +323,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
       ]
     },
     {
@@ -352,7 +352,7 @@
         "numa:2",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_hybrid",
+        "./bin/psrs_hybrid",
         "--n",
         "262144",
         "--dist",
@@ -362,7 +362,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
       ]
     },
     {
@@ -391,7 +391,7 @@
         "numa",
         "-n",
         "8",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_hybrid",
+        "./bin/psrs_hybrid",
         "--n",
         "262144",
         "--dist",
@@ -401,7 +401,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
       ]
     },
     {
@@ -432,7 +432,7 @@
         "core",
         "-n",
         "8",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -442,7 +442,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--scatter"
       ]
     },
@@ -472,7 +472,7 @@
         "core",
         "-n",
         "64",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -482,7 +482,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv"
       ]
     },
     {
@@ -513,7 +513,7 @@
         "core",
         "-n",
         "64",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "262144",
         "--dist",
@@ -523,12 +523,12 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
+        "./results/.pending/E9_quick.a1ae9ae9babc49aa9a124493ede5f3c4.csv",
         "--scatter"
       ]
     }
   ],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E9_quick.csv",
+  "csv": "./results/E9_quick.csv",
   "partial_csv": null,
   "finished": 1795073519.984801
 }

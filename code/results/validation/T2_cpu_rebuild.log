@@ -1,4 +1,4 @@
-make: Entering directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code'
+make: Entering directory '.'
 CUDA: enabled
 MPI: enabled
 g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/pthreads/bucket_pthreads.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/bucket_pthreads
@@ -9,4 +9,4 @@ g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/s
 mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/psrs_mpi.cpp src/mpi/mpi_engine.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/psrs_mpi
 mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/psrs_hybrid.cpp src/mpi/mpi_engine.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/psrs_hybrid
 mpicxx -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra src/mpi/pipeline_sort.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -Wl,-rpath,'$ORIGIN/../../.conda/lib' -o bin/pipeline_sort
-make: Leaving directory '/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code'
+make: Leaving directory '.'

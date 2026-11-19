@@ -9,6 +9,7 @@ These tests do not require sorting binaries, MPI, GPUs or an idle benchmark host
 
 import argparse
 import contextlib
+import hashlib
 import importlib
 import io
 import json
@@ -44,14 +45,157 @@ class TemporaryResults(unittest.TestCase):
         results = self.root / "results"
         results.mkdir(exist_ok=True)
         stem = experiment + ("_quick" if quick else "")
-        runner.atomic_json(
-            results / f"{stem}_status.json", {"success": success, "quick": quick}
-        )
-        if csv:
+        if csv and experiment != "E13":
             (results / f"{stem}.csv").write_text("verified,total_ms\n1,1\n")
+        state = {"success": success, "quick": quick, "experiment": experiment}
+        if experiment == "E13":
+            state["analysis_inputs"] = runner.analysis_inputs(quick, results)
+        runner.atomic_json(results / f"{stem}_status.json", state)
 
 
 class RunnerPolicyTests(TemporaryResults):
+    def test_analysis_fingerprints_cover_both_canonical_input_modes(self):
+        results = self.root / "results"
+        results.mkdir()
+        contents = {
+            "E1.csv": b"correctness",
+            "E2.csv": b"strong scaling",
+            "E4b.csv": b"oversampling",
+            "E14.csv": b"bandwidth",
+            "E2_quick.csv": b"quick scaling",
+            "E13.csv": b"analysis output is not an input",
+            "E13_quick.csv": b"quick analysis output is not an input",
+            "E99.csv": b"unknown experiment",
+            "E2_retry.csv": b"noncanonical attempt",
+        }
+        for filename, value in reversed(list(contents.items())):
+            (results / filename).write_bytes(value)
+        pending = results / ".pending"
+        pending.mkdir()
+        (pending / "E3.csv").write_bytes(b"unfinished attempt")
+        expected = {
+            filename: hashlib.sha256(contents[filename]).hexdigest()
+            for filename in ("E1.csv", "E2.csv", "E4b.csv", "E14.csv", "E2_quick.csv")
+        }
+        actual = runner.analysis_inputs(False, results)
+        self.assertEqual(actual, expected)
+        self.assertEqual(runner.analysis_inputs(True, results), expected)
+        self.assertEqual(list(actual), sorted(actual))
+        # Insertion order on disk must not affect the manifest's ordering.
+        other = self.root / "other_results"
+        other.mkdir()
+        for filename, value in contents.items():
+            (other / filename).write_bytes(value)
+        self.assertEqual(list(actual), list(runner.analysis_inputs(False, other)))
+
+    def test_e13_skip_requires_current_fingerprint_and_rejects_legacy_marker(self):
+        results = self.root / "results"
+        self.state("E2", False)
+        runner.atomic_json(
+            results / "E13_status.json", {"success": True, "quick": False}
+        )
+        self.assertFalse(runner.completed("E13", False, results))
+        self.state("E13", False)
+        self.assertTrue(runner.completed("E13", False, results))
+        self.assertFalse((results / "E13.csv").exists())
+        source = results / "E2.csv"
+        original = source.read_bytes()
+        timestamps = source.stat()
+        # Equal length and unchanged mtime still require a content comparison.
+        source.write_bytes(original.replace(b"1,1", b"1,2"))
+        os.utime(source, ns=(timestamps.st_atime_ns, timestamps.st_mtime_ns))
+        self.assertFalse(runner.completed("E13", False, results))
+        source.write_bytes(original)
+        self.assertTrue(runner.completed("E13", False, results))
+        added = results / "E14.csv"
+        added.write_text("threads,verified\n64,1\n")
+        self.assertFalse(runner.completed("E13", False, results))
+        added.unlink()
+        self.assertTrue(runner.completed("E13", False, results))
+        source.unlink()
+        self.assertFalse(runner.completed("E13", False, results))
+        source.write_bytes(original)
+        self.assertTrue(runner.completed("E13", False, results))
+
+    def test_e13_tracks_both_input_modes_without_sharing_status(self):
+        results = self.root / "results"
+        for quick in (False, True):
+            self.state("E2", quick)
+        self.state("E13", False)
+        self.assertTrue(runner.completed("E13", False, results))
+        self.assertFalse(runner.completed("E13", True, results))
+        self.state("E13", True)
+        (results / "E2.csv").write_text("verified,total_ms\n1,2\n")
+        self.assertFalse(runner.completed("E13", False, results))
+        self.assertFalse(runner.completed("E13", True, results))
+        self.state("E13", False)
+        self.state("E13", True)
+        (results / "E2_quick.csv").write_text("verified,total_ms\n1,3\n")
+        self.assertFalse(runner.completed("E13", False, results))
+        self.assertFalse(runner.completed("E13", True, results))
+        self.state("E13", False)
+        self.state("E13", True)
+        self.state("E2", False, success=False, csv=False)
+        self.assertTrue(runner.completed("E13", False, results))
+        self.assertTrue(runner.completed("E13", True, results))
+        state = json.loads((results / "E13_status.json").read_text())
+        state["quick"] = True
+        runner.atomic_json(results / "E13_status.json", state)
+        self.assertFalse(runner.completed("E13", False, results))
+        self.assertTrue(runner.completed("E13", True, results))
+
+    def test_default_e13_reruns_after_pending_upstream_then_skips_unchanged(self):
+        for experiment in runner.EXPERIMENTS:
+            self.state(experiment, True)
+        self.state("E2", True, success=False, csv=False)
+        results = self.root / "results"
+        self.assertTrue(runner.completed("E13", True, results))
+        attempts = []
+
+        def execute(command, **kwargs):
+            experiment = next(arg for arg in command if arg in runner.EXPERIMENTS)
+            attempts.append(experiment)
+            if experiment == "E2":
+                (results / "E2_quick.csv").write_text("verified,total_ms\n1,7\n")
+            else:
+                self.assertEqual(experiment, "E13")
+                self.assertIn("1,7", (results / "E2_quick.csv").read_text())
+            self.state(experiment, True, csv=False)
+
+        with patch.object(runner, "ROOT", self.root), patch.object(
+            runner, "install_termination_handler"
+        ), patch.object(runner, "preflight") as preflight, patch.object(
+            runner, "run_command", side_effect=execute
+        ), patch.object(runner.subprocess, "run"):
+            runner.main(["--quick"])
+            self.assertEqual(attempts, ["E2", "E13"])
+            runner.main(["--quick"])
+            self.assertEqual(attempts, ["E2", "E13"])
+        preflight.assert_called_once()
+        self.assertTrue(runner.completed("E13", True, results))
+
+    def test_only_upstream_does_not_implicitly_expand_selection_to_e13(self):
+        self.state("E2", True, success=False)
+        self.state("E13", True)
+        attempts = []
+
+        def execute(command, **kwargs):
+            experiment = next(arg for arg in command if arg in runner.EXPERIMENTS)
+            attempts.append(experiment)
+            self.assertEqual(experiment, "E2")
+            path = self.root / "results/E2_quick.csv"
+            path.write_text("verified,total_ms\n1,9\n")
+            self.state(experiment, True, csv=False)
+
+        with patch.object(runner, "ROOT", self.root), patch.object(
+            runner, "install_termination_handler"
+        ), patch.object(runner, "preflight"), patch.object(
+            runner, "run_command", side_effect=execute
+        ), patch.object(runner.subprocess, "run"):
+            runner.main(["--quick", "--only", "E2"])
+        self.assertEqual(attempts, ["E2"])
+        self.assertFalse(runner.completed("E13", True, self.root / "results"))
+
     def test_atomic_status_preserves_previous_document_on_replace_failure(self):
         path = self.root / "nested" / "status.json"
         runner.atomic_json(path, {"success": False})
@@ -396,6 +540,46 @@ class BenchTransactionTests(TemporaryResults):
         environment = patch.dict(os.environ, {})
         environment.start()
         self.addCleanup(environment.stop)
+
+    def test_successful_e13_records_current_input_fingerprints(self):
+        self.state("E2", False)
+        self.state("E2", True)
+        results = self.root / "results"
+        expected = runner.analysis_inputs(True, results)
+        with patch.object(self.bench, "ROOT", self.root), patch.object(
+            runner, "ROOT", self.root
+        ), patch.object(self.bench, "available_gpu", return_value=0), patch.object(
+            self.bench.shutil, "which", return_value=None
+        ), patch.object(self.bench, "execute_experiment") as execute:
+            self.bench.main(["E13", "--quick"])
+        execute.assert_called_once()
+        state = json.loads((results / "E13_quick_status.json").read_text())
+        self.assertTrue(state["success"])
+        self.assertTrue(state["quick"])
+        self.assertEqual(state["analysis_inputs"], expected)
+        self.assertEqual(set(expected), {"E2.csv", "E2_quick.csv"})
+        self.assertFalse((results / "E13_quick.csv").exists())
+        self.assertTrue(runner.completed("E13", True, results))
+
+    def test_e13_refuses_success_if_inputs_change_during_analysis(self):
+        self.state("E2", True)
+        results = self.root / "results"
+
+        def change_input():
+            (results / "E2_quick.csv").write_text("verified,total_ms\n1,8\n")
+
+        with patch.object(self.bench, "ROOT", self.root), patch.object(
+            runner, "ROOT", self.root
+        ), patch.object(self.bench, "available_gpu", return_value=0), patch.object(
+            self.bench.shutil, "which", return_value=None
+        ), patch.object(self.bench, "execute_experiment", side_effect=change_input):
+            with self.assertRaisesRegex(RuntimeError, "input CSVs changed"):
+                self.bench.main(["E13", "--quick"])
+        state = json.loads((results / "E13_quick_status.json").read_text())
+        self.assertFalse(state["success"])
+        self.assertNotIn("analysis_inputs", state)
+        self.assertIn("input CSVs changed", state["error"])
+        self.assertFalse(runner.completed("E13", True, results))
 
     def test_failure_or_interruption_keeps_canonical_csv_then_retry_replaces_it(self):
         for failure in (RuntimeError("fake sorter failed"), KeyboardInterrupt()):

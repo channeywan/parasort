@@ -1,5 +1,5 @@
 
-=== 2026-11-19T07:29:46.478148+00:00 mode=quick command=/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 -B /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/scripts/bench.py E1 --quick ===
+=== 2026-11-19T07:29:46.478148+00:00 mode=quick command=../.conda/bin/python3 -B ./scripts/bench.py E1 --quick ===
 CUDA: enabled
 MPI: enabled
 g++ -Iinclude -O3 -march=native -std=c++17 -fopenmp -pthread -Wall -Wextra tests/test_core.cpp build/common/cli.o build/common/csv.o build/common/datagen.o build/common/psrs_core.o build/common/runner.o build/common/verify.o -fopenmp -pthread -o bin/test_core

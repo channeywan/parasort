@@ -2,12 +2,28 @@
   "success": true,
   "experiment": "E13",
   "quick": true,
-  "run_id": "fcdb03e4e6924bfb87d3e3f18be39a34",
-  "started": 1795073581.110673,
+  "run_id": "fe8cee405f6d41babdb533bcfb102d63",
+  "started": 1795078690.9788127,
   "runs": 0,
   "skipped": [],
   "configurations": [],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E13_quick.csv",
+  "csv": "./results/E13_quick.csv",
   "partial_csv": null,
-  "finished": 1795073591.03613
+  "analysis_inputs": {
+    "E10_quick.csv": "f343f1395f8a53faa5c42bef8b32d19c4cc6c5c03cd5d84796ecee49a7d517e4",
+    "E11_quick.csv": "c76ef7f2d6ad8339b5af2694a6d253580189fbdb69a0527fd03f5a64cb9e835a",
+    "E12_quick.csv": "35c88ede842a4adcb465b19c1fae4ca7891d4642740642b917988fdea5a92e40",
+    "E14_quick.csv": "2f700f69ce48ecbd523696a3375a018ae68dd01e570daec85d39f1a1e288d9ed",
+    "E1_quick.csv": "f9d43eedfd539d94ca65e3015225d5e7c33f5841048b4cacb7fbd5c12769ba15",
+    "E2_quick.csv": "e278aaa65b4de52f153e4fc2b746691dbec9c1ca9edb72ca90585b7956e36ac9",
+    "E3_quick.csv": "7a56ce64a9b9e70d556400b27a3cd680be964d2b8809e073d40b3bed5d41728c",
+    "E4_quick.csv": "cb3aeb296f081533177b38732a616fe2b964b36c126af6f46951e56e47567ab1",
+    "E4b_quick.csv": "7a05be0f243b4c29dc98bbd2f282de481d76cae0b6ecd2c021506f72c9bcebb9",
+    "E5_quick.csv": "e0145266611e8ff57385daed544cc4e228006c4e4d374b36fc53897158e22108",
+    "E6_quick.csv": "cf3861b5b6ad6f8d856b1645cfa5540ccd1c0453affb0c7e73cba8ead1c502eb",
+    "E7_quick.csv": "f8f080fa233cd9754fd706837681b7a25f1df22b0343277bf8976ab9903107b8",
+    "E8_quick.csv": "9f3786588f5bf51dd6b779ce64c62b392aec3d57e659063061359db41ba24b58",
+    "E9_quick.csv": "3e19e18d3e028b9f6086a6e79799bb98015bb0688d68c07c247fe6ffd9ac7d15"
+  },
+  "finished": 1795078705.1054945
 }

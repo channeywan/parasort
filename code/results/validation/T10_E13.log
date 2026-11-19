@@ -1,0 +1,10 @@
+PRECHECK: one-minute load=7.95
+WARNING: one-minute load exceeds 2; performance may be affected.
+PRECHECK: load warning explicitly overridden by --ignore-load.
+PRECHECK: no existing GPU compute processes.
+CUDA: enabled
+MPI: enabled
+make: Nothing to be done for 'all'.
+RUN E13 (quick) -> ./results/logs/E13.log
+DONE E13
+RESUME: skip successful E13 (quick).

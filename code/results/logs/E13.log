@@ -1,12 +1,20 @@
 
-=== 2026-11-19T07:33:01.038878+00:00 mode=quick command=/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 -B /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/scripts/bench.py E13 --quick ===
-RUN /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 -B analysis/summarize.py
-Wrote 203 measured configurations and 6 fits to /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/report/tables
-RUN /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/.conda/bin/python3 -B analysis/plot.py
+=== 2026-11-19T07:33:01.038878+00:00 mode=quick command=../.conda/bin/python3 -B ./scripts/bench.py E13 --quick ===
+RUN ../.conda/bin/python3 -B analysis/summarize.py
+Wrote 203 measured configurations and 6 fits to ../report/tables
+RUN ../.conda/bin/python3 -B analysis/plot.py
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
 findfont: Failed to find font weight normal for Noto Sans CJK SC, now using 100.
-Figures saved to /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/report/figures
+Figures saved to ../report/figures
+
+=== 2026-11-19T08:58:10.907937+00:00 mode=quick command=../.conda/bin/python3 -B ./scripts/bench.py E13 --quick ===
+RUN ../.conda/bin/python3 -B analysis/summarize.py
+Wrote 203 measured configurations and 6 fits to ../report/tables
+RUN ../.conda/bin/python3 -B analysis/plot.py
+图表与图片清单已保存至 ../report/figures
+RUN ../.conda/bin/python3 -B analysis/export_for_report.py
+Exported full data to ../report/data_bundle; 0 CSV files, 19 missing entries

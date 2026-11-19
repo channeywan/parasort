@@ -33,7 +33,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "2",
         "--dist",
@@ -43,7 +43,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "elem"
       ]
@@ -74,7 +74,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "4",
         "--dist",
@@ -84,7 +84,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "elem"
       ]
@@ -115,7 +115,7 @@
         "core",
         "-n",
         "8",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "8",
         "--dist",
@@ -125,7 +125,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "elem"
       ]
@@ -149,7 +149,7 @@
         "PARASORT_MEMPOLICY": ""
       },
       "command": [
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/seq_sort",
+        "./bin/seq_sort",
         "--n",
         "65536",
         "--dist",
@@ -159,7 +159,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "std"
       ]
@@ -193,7 +193,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -203,7 +203,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -239,7 +239,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -249,7 +249,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -285,7 +285,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -295,7 +295,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -328,7 +328,7 @@
         "core",
         "-n",
         "2",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "65536",
         "--dist",
@@ -338,7 +338,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv"
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv"
       ]
     },
     {
@@ -370,7 +370,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -380,7 +380,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -416,7 +416,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -426,7 +426,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -462,7 +462,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/pipeline_sort",
+        "./bin/pipeline_sort",
         "--n",
         "65536",
         "--dist",
@@ -472,7 +472,7 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv",
         "--variant",
         "block",
         "--batch",
@@ -505,7 +505,7 @@
         "core",
         "-n",
         "4",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/psrs_mpi",
+        "./bin/psrs_mpi",
         "--n",
         "65536",
         "--dist",
@@ -515,11 +515,11 @@
         "--repeat",
         "2",
         "--csv",
-        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv"
+        "./results/.pending/E10_quick.fcf2b7165a644581a400eb4ed0dced4c.csv"
       ]
     }
   ],
-  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E10_quick.csv",
+  "csv": "./results/E10_quick.csv",
   "partial_csv": null,
   "finished": 1795073529.9779239
 }

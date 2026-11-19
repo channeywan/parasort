@@ -6,6 +6,7 @@
 
 import argparse
 from datetime import datetime, timezone
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -15,6 +16,8 @@ import subprocess
 import sys
 import time
 import uuid
+
+from portable_paths import portable_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPERIMENTS = (
@@ -38,7 +41,9 @@ def atomic_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + f".{os.getpid()}.{uuid.uuid4().hex}.tmp")
     try:
-        temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n")
+        temporary.write_text(
+            json.dumps(portable_paths(value, ROOT), indent=2, ensure_ascii=False) + "\n"
+        )
         os.replace(temporary, path)
     finally:
         temporary.unlink(missing_ok=True)
@@ -48,7 +53,7 @@ def trace(path, event):
     if path is None:
         return
     with Path(path).open("a") as stream:
-        stream.write(json.dumps(event, ensure_ascii=False) + "\n")
+        stream.write(json.dumps(portable_paths(event, ROOT), ensure_ascii=False) + "\n")
         stream.flush()
 
 
@@ -138,6 +143,31 @@ def install_termination_handler():
     signal.signal(signal.SIGTERM, terminate)
 
 
+def analysis_inputs(quick, results=None):
+    """Fingerprint both modes: E13 regenerates their shared analysis artifacts.
+
+    ``quick`` retains the calling API while status markers remain mode-specific;
+    the analysis commands themselves always consume full and quick CSVs.
+    """
+    results = ROOT / "results" if results is None else Path(results)
+    paths = sorted(
+        results / f"{experiment}{suffix}.csv"
+        for experiment in EXPERIMENTS
+        if experiment != "E13"
+        for suffix in ("", "_quick")
+    )
+    fingerprints = {}
+    for path in paths:
+        if not path.is_file():
+            continue
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(chunk)
+        fingerprints[path.name] = digest.hexdigest()
+    return fingerprints
+
+
 def completed(experiment, quick, results=None):
     results = ROOT / "results" if results is None else Path(results)
     stem = experiment + ("_quick" if quick else "")
@@ -145,11 +175,14 @@ def completed(experiment, quick, results=None):
         state = json.loads((results / f"{stem}_status.json").read_text())
     except (OSError, ValueError):
         return False
-    return (
-        state.get("success") is True
-        and state.get("quick") is quick
-        and (experiment == "E13" or (results / f"{stem}.csv").is_file())
-    )
+    if state.get("success") is not True or state.get("quick") is not quick:
+        return False
+    if experiment == "E13":
+        try:
+            return state.get("analysis_inputs") == analysis_inputs(quick, results)
+        except OSError:
+            return False
+    return (results / f"{stem}.csv").is_file()
 
 
 def preflight(ignore_load=False):
@@ -254,7 +287,13 @@ def main(argv=None):
     install_termination_handler()
     pending = []
     for experiment in chosen:
-        if not args.force and completed(experiment, args.quick):
+        # E13 comes last and must consume upstream CSVs published in this run.
+        upstream_pending = experiment == "E13" and bool(pending)
+        if (
+            not args.force
+            and not upstream_pending
+            and completed(experiment, args.quick)
+        ):
             print(
                 f'RESUME: skip successful {experiment} ({"quick" if args.quick else "full"}).',
                 flush=True,
@@ -281,14 +320,14 @@ def main(argv=None):
                 command.append("--quick")
             log = logs / f"{experiment}.log"
             print(
-                f'RUN {experiment} ({"quick" if args.quick else "full"}) -> {log}',
+                f'RUN {experiment} ({"quick" if args.quick else "full"}) -> {portable_paths(log, ROOT)}',
                 flush=True,
             )
             with log.open("a") as output:
                 output.write(
                     "\n=== "
                     + datetime.now(timezone.utc).isoformat()
-                    + f' mode={"quick" if args.quick else "full"} command={shlex.join(command)} ===\n'
+                    + f' mode={"quick" if args.quick else "full"} command={shlex.join(portable_paths(command, ROOT))} ===\n'
                 )
                 output.flush()
                 run_command(
