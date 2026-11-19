@@ -14,6 +14,8 @@ void emit_csv(const Config& c,const std::string& impl,const SortResult& r,int re
     auto& p=r.phase; std::ostringstream s;
     std::string extras="seed="+std::to_string(c.seed)+";oversample="+std::to_string(c.oversample)+";buckets_per_thread="+std::to_string(c.buckets_per_thread)+";schedule="+c.schedule+";tiebreak="+std::to_string(c.tiebreak)+";verify="+std::to_string(c.verify);
     if(const char* bind=std::getenv("OMP_PROC_BIND")) extras+=";bind="+std::string(bind);
+    if(const char* launcher=std::getenv("PARASORT_LAUNCHER")) extras+=";launcher="+std::string(launcher);
+    if(const char* binding=std::getenv("PARASORT_MPI_BIND")) extras+=";mpi_bind="+std::string(binding);
     if(const char* policy=std::getenv("PARASORT_MEMPOLICY")) extras+=";mempolicy="+std::string(policy);
     if(!r.extra.empty()) extras+=';'+r.extra;
     s<<std::put_time(&utc,"%Y-%m-%dT%H:%M:%SZ")<<','<<quote(host)<<','<<impl<<','<<quote(c.variant)<<','<<c.dist<<','<<c.n<<','<<procs<<','<<c.threads<<','<<gpus<<','<<repeat<<std::setprecision(12)<<','<<total<<','<<p.local_sort<<','<<p.sampling<<','<<p.splitters<<','<<p.partition<<','<<p.exchange<<','<<p.merge<<','<<p.h2d<<','<<p.d2h<<','<<r.imbalance<<','<<verified<<','<<quote(extras);

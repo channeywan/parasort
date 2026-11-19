@@ -1,9 +1,9 @@
 {
+  "success": true,
   "experiment": "E9",
   "quick": true,
-  "started": 1794907338.5392537,
+  "started": 1795071178.8348637,
   "runs": 10,
   "skipped": [],
-  "finished": 1794907352.7965229,
-  "success": true
+  "finished": 1795071187.5525956
 }

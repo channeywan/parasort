@@ -29,7 +29,10 @@ bin/bucket_pthreads: src/pthreads/bucket_pthreads.cpp $(COMMON_OBJ)
 bin/%: src/openmp/%.cpp $(COMMON_OBJ)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 ifneq ($(HAS_MPI),)
-mpi: bin/psrs_mpi bin/psrs_hybrid bin/pipeline_sort
+mpi: bin/psrs_mpi bin/psrs_hybrid bin/pipeline_sort bin/affinity_probe
+bin/affinity_probe: src/tools/affinity_probe.cpp
+	@mkdir -p bin
+	$(MPICXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -Wl,-rpath,'$$ORIGIN/../../.conda/lib' -o $@
 bin/psrs_mpi: src/mpi/psrs_mpi.cpp src/mpi/mpi_engine.cpp $(COMMON_OBJ)
 	$(MPICXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -Wl,-rpath,'$$ORIGIN/../../.conda/lib' -o $@
 bin/psrs_hybrid: src/mpi/psrs_hybrid.cpp src/mpi/mpi_engine.cpp $(COMMON_OBJ)

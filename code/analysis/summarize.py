@@ -4,7 +4,7 @@ import json,math
 from pathlib import Path
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[1];DEST=ROOT.parent/'report/tables'
-TUNING=['seed','oversample','buckets_per_thread','schedule','tiebreak','bind','batch','naive_atomics','scatter','mempolicy']
+TUNING=['seed','oversample','buckets_per_thread','schedule','tiebreak','bind','batch','naive_atomics','scatter','mempolicy','mpi_bind','launcher']
 def extras(text):
  return dict(part.split('=',1) for part in str(text).split(';') if '=' in part)
 def read_results():
@@ -15,7 +15,9 @@ def read_results():
   if data.empty:continue
   data=data[data.verified==1].copy();data['experiment']=path.stem.split('_')[0];data['quick']='_quick' in path.stem
   extra=data.extra.map(extras)
-  for key in TUNING:data[key]=extra.map(lambda d:d.get(key,{'seed':'42','oversample':'1','buckets_per_thread':'1','schedule':'static','tiebreak':'1','batch':'0','naive_atomics':'0','scatter':'0','bind':'unset','mempolicy':'default'}[key]))
+  valid=~data.impl.isin(['mpi','hybrid','pipeline']) | extra.map(lambda d:d.get('mpi_bind','none')!='none')
+  data=data[valid].copy();extra=extra[valid]
+  for key in TUNING:data[key]=extra.map(lambda d:d.get(key,{'seed':'42','oversample':'1','buckets_per_thread':'1','schedule':'static','tiebreak':'1','batch':'0','naive_atomics':'0','scatter':'0','bind':'unset','mempolicy':'default','mpi_bind':'none','launcher':'none'}[key]))
   data['compute_ms']=extra.map(lambda d:float(d.get('compute_ms','nan')))
   frames.append(data)
  return pd.concat(frames,ignore_index=True) if frames else pd.DataFrame()

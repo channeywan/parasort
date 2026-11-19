@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-import argparse,csv,json,os,shutil,subprocess,time
+import argparse,csv,json,os,shutil,subprocess,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];os.chdir(ROOT)
+sys.path.insert(0,str(ROOT/'scripts'))
+from launch import launch_flags
 p=argparse.ArgumentParser();p.add_argument('--quick',action='store_true');p.add_argument('--cpu-only',action='store_true');args=p.parse_args()
 DISTS=('uniform','normal','power','hotkeys','sorted','reverse','nearly_sorted','few_unique')
 NS=[0,1,2,7,1000] if args.quick else [0,1,2,7,1000,1000003]
@@ -10,8 +12,10 @@ result=ROOT/'results'/('E1_quick.csv' if args.quick else 'E1.csv');stats={'succe
 os.environ.setdefault('OMP_PROC_BIND','close');os.environ.setdefault('OMP_PLACES','cores')
 def check(exe,variant,n,dist,t=1,ranks=0,options=()):
  cmd=[str(ROOT/'bin'/exe),'--variant',variant,'--n',str(n),'--dist',dist,'--threads',str(t),'--repeat','1','--csv',str(result),*options]
- if ranks:cmd=[os.environ.get('MPIEXEC','mpiexec'),*os.environ.get('MPIEXEC_FLAGS','').split(),'-n',str(ranks),*cmd]
- subprocess.run(cmd,check=True,stdout=subprocess.DEVNULL,timeout=90);stats['passed']+=1
+ child_env=dict(os.environ)
+ for key in ('PARASORT_LAUNCHER','PARASORT_MPI_BIND'):child_env.pop(key,None)
+ if ranks:cmd=[child_env.get('MPIEXEC','mpiexec'),*launch_flags(exe,ranks,t,child_env),'-n',str(ranks),*cmd]
+ subprocess.run(cmd,check=True,stdout=subprocess.DEVNULL,timeout=90,env=child_env);stats['passed']+=1
 spec=[('seq_sort','std'),('seq_sort','bucket'),('bucket_pthreads','locked'),('bucket_pthreads','local'),('bucket_omp','local'),('psrs_omp','psrs'),('ref_sorts','gnu_parallel'),('ref_sorts','omp_task_qsort')]
 try:
  subprocess.run(['make','bin/test_core'],check=True,stdout=subprocess.DEVNULL);subprocess.run(['bin/test_core'],check=True)
