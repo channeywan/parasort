@@ -1,0 +1,41 @@
+threads,bind,kernel,best_GBps,median_GBps,n,repeats,verified,host,places,warmups,timestamp,bind_requested
+128,close,copy,36.4366771535,33.6121966707,268435456,5,1,"ubuntu","threads",1,"2026-11-19T07:26:37Z","close"
+128,close,triad,40.5399158506,38.0302824544,268435456,5,1,"ubuntu","threads",1,"2026-11-19T07:26:37Z","close"
+available: 8 nodes (0-7)
+node 0 cpus: 0 1 2 3 4 5 6 7 64 65 66 67 68 69 70 71
+node 0 size: 32068 MB
+node 0 free: 1047 MB
+node 1 cpus: 8 9 10 11 12 13 14 15 72 73 74 75 76 77 78 79
+node 1 size: 32251 MB
+node 1 free: 180 MB
+node 2 cpus: 16 17 18 19 20 21 22 23 80 81 82 83 84 85 86 87
+node 2 size: 32251 MB
+node 2 free: 2611 MB
+node 3 cpus: 24 25 26 27 28 29 30 31 88 89 90 91 92 93 94 95
+node 3 size: 32191 MB
+node 3 free: 1238 MB
+node 4 cpus: 32 33 34 35 36 37 38 39 96 97 98 99 100 101 102 103
+node 4 size: 32251 MB
+node 4 free: 1735 MB
+node 5 cpus: 40 41 42 43 44 45 46 47 104 105 106 107 108 109 110 111
+node 5 size: 32251 MB
+node 5 free: 17817 MB
+node 6 cpus: 48 49 50 51 52 53 54 55 112 113 114 115 116 117 118 119
+node 6 size: 32251 MB
+node 6 free: 199 MB
+node 7 cpus: 56 57 58 59 60 61 62 63 120 121 122 123 124 125 126 127
+node 7 size: 32245 MB
+node 7 free: 200 MB
+node distances:
+node   0   1   2   3   4   5   6   7 
+  0:  10  12  12  12  32  32  32  32 
+  1:  12  10  12  12  32  32  32  32 
+  2:  12  12  10  12  32  32  32  32 
+  3:  12  12  12  10  32  32  32  32 
+  4:  32  32  32  32  10  12  12  12 
+  5:  32  32  32  32  12  10  12  12 
+  6:  32  32  32  32  12  12  10  12 
+  7:  32  32  32  32  12  12  12  10 
+zone_reclaim_mode=0
+MAX_ANON_PAGES=1572873
+7fecaa927000 default anon=1572873 dirty=1572873 active=0 N0=196610 N1=23493 N2=369723 N3=196608 N4=413135 N5=371634 N7=1670 kernelpagesize_kB=4

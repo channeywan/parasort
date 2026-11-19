@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E1–E13 and E4b matrices, with transactional per-experiment CSV output."""
+"""E1–E14 and E4b matrices, with transactional per-experiment CSV output."""
 import argparse
 import json
 import math
@@ -79,6 +79,30 @@ def baseline(n,dist='uniform'):
     if (n,dist) not in base_done:
         run('seq_sort',n,dist,variant='std')
         base_done.add((n,dist))
+
+def stream(n,threads,bind):
+    binary=ROOT/'bin'/'stream_bw'
+    if not args.dry_run and not binary.exists():
+        plan['skipped'].append('stream_bw: binary not built')
+        return
+    child_env=dict(os.environ,OMP_NUM_THREADS=str(threads),OMP_PROC_BIND=bind,
+                   OMP_PLACES='threads' if threads==128 else 'cores')
+    command=[str(binary),'--n',str(n),'--threads',str(threads),'--repeat','5','--csv',str(result)]
+    configuration={'executable':'stream_bw','n':n,'threads':threads,'bind':bind,
+                   'kernels':['copy','triad'],'repeats':5,'warmups':1,
+                   'environment':{key:child_env[key] for key in ('OMP_NUM_THREADS','OMP_PROC_BIND','OMP_PLACES')},'command':command}
+    plan['configurations'].append(configuration)
+    print('DRY RUN' if args.dry_run else 'RUN',shlex.join(command),
+          f'OMP_PROC_BIND={bind} OMP_PLACES={child_env["OMP_PLACES"]}',flush=True)
+    if args.dry_run:
+        estimate=estimate_seconds(n,threads,5)
+        plan['estimated_seconds']=plan.get('estimated_seconds',0)+estimate
+        print(f'ESTIMATE: {estimate:.3f} s (planning heuristic only)',flush=True)
+        return
+    run_command(command,cwd=ROOT,env=child_env,timeout=240 if args.quick else None,
+                trace_path=ROOT/'results'/'commands.jsonl',metadata={'experiment':'E14','quick':args.quick,'run_id':plan['run_id'],'configuration':configuration})
+    plan['runs']+=1
+    atomic_json(status,plan)
 
 def cpu(n,p,dist='uniform'):
     run('bucket_omp',n,dist,p);run('psrs_omp',n,dist,p)
@@ -164,6 +188,10 @@ def execute_experiment():
      for affinity in ('numa','none'):run('gpu_multi',n,extra=['--gpu-affinity',affinity])
     elif e=='E12':
      n=size(30);baseline(n);cpu(n,PS[-1]);run('gpu_sort',n,variant='thrust');run('gpu_sort',n,variant='sample');run('gpu_multi',n)
+    elif e=='E14':
+     n=(1<<20) if args.quick else (1<<28)
+     for bind in ('close','spread'):
+      for p in (1,2,4,8,16,32,64,128):stream(n,p,bind)
     elif e=='E13':
      python=os.environ.get('PYTHON',sys.executable)
      for script in ('analysis/summarize.py','analysis/plot.py'):

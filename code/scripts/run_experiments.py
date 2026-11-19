@@ -13,7 +13,7 @@ import time
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENTS = tuple(f'E{i}' for i in range(1, 5)) + ('E4b',) + tuple(f'E{i}' for i in range(5, 14))
+EXPERIMENTS = tuple(f'E{i}' for i in range(1, 5)) + ('E4b',) + tuple(f'E{i}' for i in range(5, 13)) + ('E14', 'E13')
 ENV_FIELDS = ('OMP_NUM_THREADS', 'OMP_PROC_BIND', 'OMP_PLACES',
               'PARASORT_LAUNCHER', 'PARASORT_MPI_BIND', 'PARASORT_MEMPOLICY')
 

@@ -17,7 +17,7 @@ $(info MPI: $(if $(HAS_MPI),enabled,disabled))
 all: seq pthreads openmp mpi cuda
 seq: bin/seq_sort
 pthreads: bin/bucket_pthreads
-openmp: bin/bucket_omp bin/psrs_omp bin/ref_sorts
+openmp: bin/bucket_omp bin/psrs_omp bin/ref_sorts bin/stream_bw
 build/%.o: src/%.cpp $(wildcard include/*.hpp)
 	@mkdir -p $(@D)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
@@ -25,6 +25,9 @@ bin/seq_sort: src/seq/seq_sort.cpp $(COMMON_OBJ)
 	@mkdir -p bin
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 bin/bucket_pthreads: src/pthreads/bucket_pthreads.cpp $(COMMON_OBJ)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+bin/stream_bw: src/tools/stream_bw.cpp $(COMMON_OBJ)
+	@mkdir -p bin
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 bin/%: src/openmp/%.cpp $(COMMON_OBJ)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@

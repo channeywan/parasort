@@ -10,7 +10,7 @@ def extras(text):
 def read_results():
  frames=[]
  for path in sorted((ROOT/'results').glob('*.csv')):
-  if not path.name.startswith('E') or path.stem.split('_')[0] in ('E1','E13'):continue
+  if not path.name.startswith('E') or path.stem.split('_')[0] in ('E1','E13','E14'):continue
   data=pd.read_csv(path)
   if data.empty:continue
   data=data[data.verified==1].copy();data['experiment']=path.stem.split('_')[0];data['quick']='_quick' in path.stem
@@ -21,6 +21,27 @@ def read_results():
   data['compute_ms']=extra.map(lambda d:float(d.get('compute_ms','nan')))
   frames.append(data)
  return pd.concat(frames,ignore_index=True) if frames else pd.DataFrame()
+def read_bandwidth():
+ frames=[]
+ for path in sorted((ROOT/'results').glob('E14*.csv')):
+  if path.stem not in ('E14','E14_quick'):continue
+  data=pd.read_csv(path)
+  if data.empty:continue
+  data=data[pd.to_numeric(data.verified,errors='coerce')==1].copy()
+  for field in ('threads','n','best_GBps','median_GBps'):
+   data[field]=pd.to_numeric(data[field],errors='coerce')
+   data=data[data[field].map(math.isfinite)]
+  data=data[(data.threads>0)&(data.n>0)&(data.best_GBps>0)&(data.median_GBps>0)]
+  data['quick']=path.stem.endswith('_quick');data['source']='results/'+path.name
+  frames.append(data)
+ return pd.concat(frames,ignore_index=True) if frames else pd.DataFrame()
+
+def merge_bandwidth(data):
+ """A read and a write of each uint32 key; only PSRS merge is a single pass."""
+ values=pd.Series(float('nan'),index=data.index)
+ valid=data.impl.isin(('omp','mpi','hybrid'))&data.variant.isin(('psrs','allgather','serial_init'))&(data.merge_ms>0)&(data.n>0)
+ values.loc[valid]=8*data.loc[valid,'n']/(data.loc[valid,'merge_ms']*1e6)
+ return values
 def markdown(data):
  def cell(x):
   if pd.isna(x):return '—'
@@ -54,7 +75,13 @@ def fit_models(summary):
   record=dict(zip(identity,name));record.update(sse=best[0],f=best[1],alpha_ms=best[2],points=len(points));fits.append(record)
  return fits
 def main():
- DEST.mkdir(parents=True,exist_ok=True);raw=read_results()
+ DEST.mkdir(parents=True,exist_ok=True);raw=read_results();bandwidth=read_bandwidth()
+ if not bandwidth.empty:
+  bandwidth.to_csv(DEST/'bandwidth.csv',index=False)
+  for quick,data in bandwidth.groupby('quick'):
+   table=data[['host','n','threads','bind','kernel','best_GBps','median_GBps']]
+   (DEST/f'E14{"_quick" if quick else ""}.md').write_text('# E14 '+('快速验证' if quick else '完整实验')+'\n\n'+markdown(table)+'\n\nGB/s 采用十进制字节。Copy=16n 字节，Triad=24n 字节；每配置热身一次、测量五次，逐次验证输出。\n')
+ else:(DEST/'bandwidth.csv').unlink(missing_ok=True)
  if raw.empty:
   (DEST/'README.md').write_text('TODO(待服务器实测)：尚无 verified=1 的实验 CSV。\n');print('No verified experiment data');return
  keys=['experiment','quick','host','impl','variant','dist','n','procs','threads','gpus']+TUNING
@@ -63,6 +90,7 @@ def main():
  for field in ['imbalance','compute_ms','local_sort_ms','sampling_ms','splitters_ms','partition_ms','exchange_ms','merge_ms','h2d_ms','d2h_ms']:
   summary=summary.merge(grouped[field].median().rename(field).reset_index(),on=keys)
  summary['units']=summary.apply(lambda x:int(x.gpus) if x.gpus else int(x.procs*x.threads),axis=1)
+ summary['merge_GBps']=merge_bandwidth(summary)
  baseline=summary[(summary.impl=='seq')&(summary.variant=='std')]
  def lookup(row):
   subset=baseline[(baseline.host==row.host)&(baseline.quick==row.quick)&(baseline.seed==row.seed)&(baseline.n==row.n)&(baseline.dist==row.dist)]

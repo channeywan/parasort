@@ -1,0 +1,3 @@
+threads,bind,kernel,best_GBps,median_GBps,n,repeats,verified,host,places,warmups,timestamp,bind_requested
+128,close,copy,37.198178727,36.148092502,268435456,5,1,"ubuntu","threads",1,"2026-11-19T07:22:51Z","close"
+128,close,triad,40.1521594605,39.0078984905,268435456,5,1,"ubuntu","threads",1,"2026-11-19T07:22:51Z","close"

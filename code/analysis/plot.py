@@ -130,13 +130,39 @@ def plot_e4b(data,quick):
   else:ax.text(.5,.5,'暂无符合参数的实测数据',ha='center',transform=ax.transAxes)
  save(fig,'E4b_tiebreak'+suffix)
 
+def plot_e14(data,bandwidth,quick):
+ fig,ax=plt.subplots(figsize=(10,5))
+ stream=bandwidth[bandwidth.quick==quick] if not bandwidth.empty else bandwidth
+ if not stream.empty:
+  for (host,n,bind,kernel),group in stream.groupby(['host','n','bind','kernel']):
+   group=group.sort_values('threads')
+   name=('复制' if kernel=='copy' else '三项运算')+f'，{bind}，n={n}，{host}'
+   ax.plot(group.threads,group.best_GBps,'o-',label='STREAM '+name)
+ # The requested PSRS overlay uses full E2/E5 only. A quick STREAM figure
+ # remains a separate diagnostic and never borrows complete-sort results.
+ if not quick and not data.empty and 'merge_GBps' in data:
+  merge=data[(data.quick==False)&data.experiment.isin(('E2','E5'))&data.merge_GBps.notna()].copy()
+  merge['rank_group']=merge.apply(lambda row:row.procs if row.impl=='hybrid' else 0,axis=1)
+  identity=['experiment','host','n','impl','variant','seed','rank_group']
+  for config,group in merge.groupby(identity):
+   group=group.sort_values('units')
+   ax.plot(group.units,group.merge_GBps,'s--',label=f'{config[0]} PSRS 归并，{config[3]}，rank={config[-1]}，n={config[2]}')
+ if not ax.lines:ax.text(.5,.5,'暂无本模式的实测数据',ha='center',transform=ax.transAxes)
+ else:ax.legend(fontsize=6,loc='best')
+ ax.set_xscale('log',base=2);ax.set_xticks([1,2,4,8,16,32,64,128],[str(p) for p in [1,2,4,8,16,32,64,128]])
+ ax.set(xlabel='线程数 / 处理单元数 p',ylabel='带宽 (GB/s)',title='STREAM 内存带宽与 PSRS 归并有效带宽')
+ save(fig,'E14'+('_quick' if quick else ''))
+
 def main():
  DEST.mkdir(parents=True,exist_ok=True);path=TABLES/'summary.csv'
  if not path.exists():print('Run summarize.py after collecting CSV results');return
  data=pd.read_csv(path,dtype={'tiebreak':str,'naive_atomics':str,'buckets_per_thread':str,'batch':str,'bind':str});data['label']=data.apply(label,axis=1)
- for quick in sorted(data.quick.unique()):
+ bandwidth=pd.read_csv(TABLES/'bandwidth.csv') if (TABLES/'bandwidth.csv').exists() else pd.DataFrame()
+ modes=set(data.quick.unique())|set(bandwidth.quick.unique() if not bandwidth.empty else [])
+ for quick in sorted(modes):
   all_data=data[data.quick==quick];suffix='_quick' if quick else ''
   plot_e4b(all_data,quick)
+  plot_e14(data,bandwidth,quick)
   for number in range(2,14):
    e=f'E{number}';d=all_data[all_data.experiment==e].copy()
    if e=='E13':

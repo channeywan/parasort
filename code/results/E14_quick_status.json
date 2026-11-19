@@ -1,0 +1,462 @@
+{
+  "success": true,
+  "experiment": "E14",
+  "quick": true,
+  "run_id": "7b3b560b37f345debc403c830eb3abda",
+  "started": 1795072973.970651,
+  "runs": 16,
+  "skipped": [],
+  "configurations": [
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 1,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "1",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 2,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "2",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "2",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 4,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "4",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "4",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 8,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "8",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 16,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "16",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 32,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "32",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 64,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "64",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 128,
+      "bind": "close",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "close",
+        "OMP_PLACES": "threads"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "128",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 1,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "1",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 2,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "2",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "2",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 4,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "4",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "4",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 8,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "8",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "8",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 16,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "16",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "16",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 32,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "32",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "32",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 64,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "64",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "cores"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "64",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    },
+    {
+      "executable": "stream_bw",
+      "n": 1048576,
+      "threads": 128,
+      "bind": "spread",
+      "kernels": [
+        "copy",
+        "triad"
+      ],
+      "repeats": 5,
+      "warmups": 1,
+      "environment": {
+        "OMP_NUM_THREADS": "128",
+        "OMP_PROC_BIND": "spread",
+        "OMP_PLACES": "threads"
+      },
+      "command": [
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/bin/stream_bw",
+        "--n",
+        "1048576",
+        "--threads",
+        "128",
+        "--repeat",
+        "5",
+        "--csv",
+        "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/.pending/E14_quick.7b3b560b37f345debc403c830eb3abda.csv"
+      ]
+    }
+  ],
+  "csv": "/home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/E14_quick.csv",
+  "partial_csv": null,
+  "finished": 1795072974.6723728
+}

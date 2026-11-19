@@ -142,3 +142,11 @@ bash scripts/run_all.sh 2>&1 | tee results/logs/run_all.log
 过采样扫描固定 OpenMP 64 线程、开启 tie-break，在 uniform、normal、hotkeys 分布上取 k={1,2,4,8,16,32}。重复键扫描固定 k=1，在 hotkeys、few_unique 分布上取 p={8,16,32,64,128}，分别开启或关闭 tie-break；128 线程使用 `OMP_PLACES=threads`。两个扫描中完全相同的 hotkeys、p=64、k=1、开启 tie-break 配置共用同一组实测数据，因此每轮共执行 37 个不同配置。
 
 `E4b_oversample` 图按分布展示失衡度和总时间的双纵轴曲线，并单独显示分割点选择时间；`E4b_tiebreak` 图按分布展示失衡度随 p 的变化。正式图表不带后缀，快速图表和表格带 `_quick` 后缀，两种规模分别统计。失衡是否随 k 单调变化、p=64 时开启 tie-break 是否低于 2，均以实际 CSV 为准；脚本不会修改排序参数来匹配预期。
+
+## 内存带宽（T5 / E14）
+
+`bash scripts/bench_e14.sh` 测量 Copy 和 Triad：三个 double 数组并行首次写入，正式每数组 2²⁸ 个元素，快速每数组 2²⁰ 个元素。两种绑定 close/spread、1–128 线程均测量；每核热身一次、正式五次，保存最好和中位带宽，每次在计时后逐元素验证。快速数组可能命中缓存，其带宽不能作为 DRAM 性能结论。
+
+CSV 使用十进制 GB/s，Copy 每元素读取和写入共 16 字节，Triad 两读一写共 24 字节。PSRS 只对归并阶段计算 `8*n/(merge_ms*1e6)` GB/s；不估算本地排序或划分的带宽。E14 正式图仅叠加完整 E2/E5 的归并数据，快速图只展示快速 STREAM。E14 在 E13 分析之前执行，以便同轮生成带宽图和数据包。
+
+本轮单配置健全性检查使用 2²⁸、128 线程、close，Triad 最好带宽约 40 GB/s，原始结果保存在 `results/validation/T5_stream128.csv`。已核对 `-O3 -march=native`、全部 128 个线程的不同 CPU 绑定和并行 first-touch。`T5_residency.log` 显示 6 GiB 页面没有均匀驻留在八个节点：节点 6 没有页面、节点 7 约 6.5 MiB。当前部分节点的大量文件缓存、`zone_reclaim_mode=0` 和跨节点分配影响了本地性；[内核说明](https://www.kernel.org/doc/html/v6.14/admin-guide/sysctl/vm.html#zone-reclaim-mode) 允许这种回退。本次值是当前页面分配条件下的实测有效带宽，不能当作硬件峰值。没有修改系统设置或改变默认内存策略；该检查也不替代 E14 完整矩阵。

@@ -1,0 +1,9 @@
+PRECHECK: one-minute load=4.13
+WARNING: one-minute load exceeds 2; performance may be affected.
+PRECHECK: load warning explicitly overridden by --ignore-load.
+PRECHECK: no existing GPU compute processes.
+CUDA: enabled
+MPI: enabled
+make: Nothing to be done for 'all'.
+RUN E14 (quick) -> /home/wcl/Documents/Codex/2026-11-17/files-mentioned-by-the-user-design/work/parasort-phase2/code/results/logs/E14.log
+DONE E14
